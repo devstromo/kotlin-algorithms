@@ -11,6 +11,19 @@ Our aim is to provide a comprehensive collection of well-implemented algorithms 
 - **Examples and Tests:** Each implementation is accompanied by examples and thorough tests to ensure reliability and ease of understanding.
 - **Documentation:** Clear documentation for each algorithm and data structure, explaining the logic, complexity, and potential use cases.
 
+# Current implementations:
+
+# Table of Contents
+- [Sequences](#sequences)
+
+
+### Sequences
+This section covers various sequence algorithms, showcasing different methods to generate or manipulate numerical sequences.
+
+- [Find n-th element in fibonacci sequence](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sequences/fibonacci/Fibonacci.kt)
+   - Recursive
+
+
 ## Contributing
 This is a collaborative project, and contributions are warmly welcomed. Whether it's adding new implementations, improving existing ones, or enhancing documentation, your input is valuable.
 
