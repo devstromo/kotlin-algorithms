@@ -21,5 +21,10 @@ class FibonacciUnitTest {
         assertEquals(610, fibonacci.fibonacciTabulation(15))
     }
 
+    @Test
+    fun `Fibonacci Space Optimization`() {
+        assertEquals(610, fibonacci.fibonacciSpaceOptimized(15))
+    }
+
 
 }

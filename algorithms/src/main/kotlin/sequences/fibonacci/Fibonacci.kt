@@ -84,4 +84,38 @@ class Fibonacci {
         }
         return fib[n]
     }
+
+    /**
+     * Calculates the nth Fibonacci number using a space-optimized approach.
+     *
+     * This method improves on the space efficiency of the tabulation method by only keeping track of the last two numbers
+     * in the Fibonacci sequence at any point in time. This drastically reduces the space requirement from an array of size n
+     * to just two integer variables, without sacrificing the computational efficiency of the dynamic programming approach.
+     *
+     * @param n The position in the Fibonacci sequence to compute. Must be a non-negative integer.
+     * @return The nth Fibonacci number.
+     *
+     * The function initializes two variables, `a` and `b`, to represent the first two Fibonacci numbers, respectively 0 and 1.
+     * It then iterates from 2 up to `n`, updating these variables to hold the last two Fibonacci numbers at each step. This process
+     * continues until it reaches the desired position `n` in the sequence. The variable `b` will then hold the nth Fibonacci number,
+     * which is returned as the output.
+     *
+     * Time Complexity: O(n), where n is the input parameter. Similar to the tabulation approach, this method calculates each Fibonacci
+     * number once. However, it does so with significantly reduced space complexity.
+     *
+     * Space Complexity: O(1), a constant space complexity, as the method only requires a fixed amount of space (for the variables `a`, `b`,
+     * and `c`) regardless of the input size.
+     */
+    fun fibonacciSpaceOptimized(n: Int): Int {
+        if (n <= 1) return n
+        var a = 0
+        var b = 1
+        var c: Int
+        for (i in 2..n) {
+            c = a + b
+            a = b
+            b = c
+        }
+        return b
+    }
 }
