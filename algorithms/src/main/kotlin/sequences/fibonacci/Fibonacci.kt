@@ -1,5 +1,6 @@
 package sequences.fibonacci
 
+import java.math.BigInteger
 import kotlin.math.pow
 import kotlin.math.sqrt
 
@@ -156,5 +157,72 @@ class Fibonacci {
         val sqrt5 = sqrt(5.0)
         val phi = (1 + sqrt5) / 2
         return Math.round(phi.pow(n.toDouble()) / sqrt5)
+    }
+
+    /**
+     * Calculates the nth Fibonacci number using the fast doubling method.
+     *
+     * The fast doubling method is an efficient way to compute Fibonacci numbers that
+     * takes advantage of the properties of the Fibonacci sequence. It uses the fact that
+     * for any positive integer k, the values of F(2k), F(2k+1), and F(2k+2) can be calculated
+     * from F(k) and F(k+1) using a small number of arithmetic operations.
+     *
+     * This method significantly reduces the number of operations required to compute large Fibonacci
+     * numbers by doubling the position in each step, instead of incrementing one by one. It relies on
+     * matrix multiplication principles under the hood and applies these in a recursive manner without
+     * actually constructing matrices.
+     *
+     * @param n The position in the Fibonacci sequence to compute. Can be a negative or positive [BigInteger].
+     * @return The nth Fibonacci number as a [BigInteger]. For negative inputs, it returns the Fibonacci number
+     *         at the position of the absolute value of n, negated if n is an even negative number, following
+     *         the Fibonacci sequence property F(-n) = (-1)^(n+1) * F(n).
+     *
+     * The function computes Fibonacci numbers by iterating through the bits of the absolute value of the
+     * input number, starting from the most significant bit. It applies a series of operations to double
+     * the position and adjust based on the current bit being processed. This method efficiently handles
+     * very large inputs by operating directly on [BigInteger] values.
+     *
+     * Time Complexity: O(log n), where n is the absolute value of the input parameter. This complexity
+     * arises because the method effectively halves the problem size at each step by using the fast doubling
+     * technique, leading to a logarithmic number of steps.
+     *
+     * Space Complexity: O(log n), primarily due to the recursive nature and the storage requirements
+     * for intermediate [BigInteger] results during computation. However, this implementation iterates
+     * without explicit recursion, so the space complexity is largely dependent on the [BigInteger]
+     * arithmetic operations rather than call stack depth.
+     */
+    fun fibonacciFastDoublingMethod(n: BigInteger): BigInteger {
+        var a = BigInteger.ZERO
+        var b = BigInteger.ONE
+        val bitValue = n.abs().longValueExact()
+
+        var highestOneBit = highestOneBit(bitValue)
+        while (highestOneBit != 0L) {
+            val d = a.multiply(b.shiftLeft(1).subtract(a))
+            val e = a.multiply(a).add(b.multiply(b))
+            a = d
+            b = e
+            if ((bitValue and highestOneBit) != 0L) {
+                val c = a.add(b)
+                a = b
+                b = c
+            }
+            highestOneBit = highestOneBit ushr 1
+        }
+        if (n.signum() < 0 && n.abs().mod(BigInteger.TWO).signum() == 0) {
+            a = a.negate()
+        }
+        return a
+    }
+
+    private fun highestOneBit(i: Long): Long {
+        var bit = i
+        bit = bit or (bit shr 1)
+        bit = bit or (bit shr 2)
+        bit = bit or (bit shr 4)
+        bit = bit or (bit shr 8)
+        bit = bit or (bit shr 16)
+        bit = bit or (bit shr 32)
+        return bit - (bit ushr 1)
     }
 }
