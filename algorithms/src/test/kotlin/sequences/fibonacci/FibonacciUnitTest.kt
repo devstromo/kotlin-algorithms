@@ -11,4 +11,10 @@ class FibonacciUnitTest {
         assertEquals(610, fibonacci.fibonacciRecursive(15))
     }
 
+    @Test
+    fun `Fibonacci Memoization`() {
+        assertEquals(610, fibonacci.fibonacciMemoization(15))
+    }
+
+
 }
