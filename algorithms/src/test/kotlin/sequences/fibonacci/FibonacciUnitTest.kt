@@ -16,5 +16,10 @@ class FibonacciUnitTest {
         assertEquals(610, fibonacci.fibonacciMemoization(15))
     }
 
+    @Test
+    fun `Fibonacci Tabulation`() {
+        assertEquals(610, fibonacci.fibonacciTabulation(15))
+    }
+
 
 }

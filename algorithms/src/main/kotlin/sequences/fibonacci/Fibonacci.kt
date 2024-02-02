@@ -52,4 +52,36 @@ class Fibonacci {
         memo[n] = fibonacciMemoization(n - 1, memo) + fibonacciMemoization(n - 2, memo)
         return memo[n]
     }
+
+    /**
+     * Calculates the nth Fibonacci number using the tabulation (bottom-up) dynamic programming approach.
+     *
+     * Tabulation is a bottom-up approach to dynamic programming. This method iteratively calculates
+     * and stores the Fibonacci numbers in a table (array) from the bottom up. It starts with the base
+     * cases and solves for higher numbers based on them.
+     *
+     * @param n The position in the Fibonacci sequence to compute. Must be a non-negative integer.
+     * @return The nth Fibonacci number.
+     *
+     * This function first checks for the base cases (n = 0 or n = 1). It then initializes an array
+     * to hold the Fibonacci numbers up to n, with a default value of 0. The first two Fibonacci numbers
+     * (at indices 0 and 1) are set according to the Fibonacci sequence, and the function iterates from 2 to n,
+     * filling the array with the sum of the two preceding Fibonacci numbers at each step. The nth Fibonacci
+     * number is returned as the output.
+     *
+     * Time Complexity: O(n), where n is the input parameter. This is a significant improvement over the
+     * recursive approach without memoization, as each Fibonacci number up to n is calculated exactly once.
+     *
+     * Space Complexity: O(n), due to the array used to store the Fibonacci numbers up to n. This space is
+     * required to hold the intermediate results of the Fibonacci sequence.
+     */
+    fun fibonacciTabulation(n: Int): Int {
+        if (n <= 1) return n
+        val fib = IntArray(n + 1)
+        fib[1] = 1
+        for (i in 2..n) {
+            fib[i] = fib[i - 1] + fib[i - 2]
+        }
+        return fib[n]
+    }
 }
