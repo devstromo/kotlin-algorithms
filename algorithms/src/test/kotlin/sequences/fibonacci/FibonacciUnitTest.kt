@@ -26,5 +26,10 @@ class FibonacciUnitTest {
         assertEquals(610, fibonacci.fibonacciSpaceOptimized(15))
     }
 
+    @Test
+    fun `Fibonacci Closed-Form Formula (Binet's Formula)`() {
+        assertEquals(610, fibonacci.fibonacciClosedForm(15))
+    }
+
 
 }

@@ -1,5 +1,8 @@
 package sequences.fibonacci
 
+import kotlin.math.pow
+import kotlin.math.sqrt
+
 
 class Fibonacci {
 
@@ -117,5 +120,41 @@ class Fibonacci {
             b = c
         }
         return b
+    }
+
+    /**
+     * Calculates the nth Fibonacci number using the closed-form expression known as Binet's formula.
+     *
+     * Binet's formula is given by:
+     *
+     * `F(n) = (phi^n - psi^n) / sqrt(5)`
+     *
+     * where `phi = (1 + sqrt(5)) / 2` (the golden ratio) and `psi = (1 - sqrt(5)) / 2`.
+     * For the purposes of computing Fibonacci numbers, the term involving `psi` is omitted
+     * because it tends towards zero for large n, and its effect is negligible, allowing the formula
+     * to be simplified to:
+     *
+     * `F(n) = round(phi^n / sqrt(5))`
+     *
+     * This method applies this simplified version of Binet's formula, directly calculating the nth Fibonacci number
+     * without recursion or iteration. This approach offers significant computational advantages, particularly for large
+     * values of n, by enabling constant-time computation.
+     *
+     * @param n The position in the Fibonacci sequence to compute. Must be a non-negative integer. The method returns
+     * a [Long] to accommodate larger Fibonacci numbers.
+     * @return The nth Fibonacci number as a [Long].
+     *
+     * The function calculates the golden ratio, `phi`, raises `phi` to the power of `n`, divides by the square root of 5,
+     * and rounds the result to the nearest whole number to derive the nth Fibonacci number. While fast and efficient, this method
+     * may experience precision issues for very large values of n due to limitations in floating-point arithmetic.
+     *
+     * Time Complexity: O(1), as the calculation involves a constant number of operations regardless of the size of n.
+     *
+     * Space Complexity: O(1), as the method uses a fixed amount of space for its calculations.
+     */
+    fun fibonacciClosedForm(n: Int): Long {
+        val sqrt5 = sqrt(5.0)
+        val phi = (1 + sqrt5) / 2
+        return Math.round(phi.pow(n.toDouble()) / sqrt5)
     }
 }
