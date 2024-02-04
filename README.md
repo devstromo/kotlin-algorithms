@@ -22,6 +22,10 @@ This section covers various sequence algorithms, showcasing different methods to
 
 - [Find n-th element in fibonacci sequence](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sequences/fibonacci/Fibonacci.kt)
    - Recursive
+   - Memoization
+   - Tabular
+   - Binet's Formula
+   - Fast Doubling Method Negative
 
 
 ## Contributing
