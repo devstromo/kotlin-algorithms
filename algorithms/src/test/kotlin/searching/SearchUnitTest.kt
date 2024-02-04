@@ -3,6 +3,7 @@ package searching
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import searching.binary.BinarySearch
+import searching.exponential.ExponentialSearch
 import searching.interpolation.InterpolationSearch
 import searching.linear.LinearSearch
 
@@ -10,6 +11,7 @@ class SearchUnitTest {
     private val linearSearch = LinearSearch()
     private val binarySearch = BinarySearch()
     private val interpolationSearch = InterpolationSearch()
+    private val exponentialSearch = ExponentialSearch()
 
     @Test
     fun `Test Linear Search Algorithm`() {
@@ -55,6 +57,20 @@ class SearchUnitTest {
         val target = 75
         val expectedIndex = -1
         assertEquals(expectedIndex, interpolationSearch.search(data, target))
+    }
+
+    @Test
+    fun `Test Exponential Search Algorithm`() {
+        val data = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        val expectedIndex = 6
+        assertEquals(expectedIndex, exponentialSearch.search(data, 7))
+    }
+
+    @Test
+    fun `Test Exponential Search Algorithm Element Not Found`() {
+        val data = intArrayOf(10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
+        val expectedIndex = -1
+        assertEquals(expectedIndex, exponentialSearch.search(data, 75))
     }
 
 }
