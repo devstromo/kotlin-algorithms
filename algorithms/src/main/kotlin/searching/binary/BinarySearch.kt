@@ -26,12 +26,10 @@ class BinarySearch {
 
         while (low <= high) {
             val mid = low + (high - low) / 2
-            if (data[mid] == target) {
-                return mid
-            } else if (data[mid] > target) {
-                high = mid - 1
-            } else {
-                low = mid + 1
+            when {
+                data[mid] == target -> return mid
+                data[mid] < target -> low = mid + 1
+                else -> high = mid - 1
             }
         }
         return -1
