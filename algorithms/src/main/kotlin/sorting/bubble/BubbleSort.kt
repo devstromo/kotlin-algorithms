@@ -30,12 +30,10 @@ class BubbleSort {
             swapped = false
             for (i in 1 until n) {
                 if (data[i - 1] > data[i]) {
-                    // Swap the elements
                     data.swap(i - 1, i)
                     swapped = true
                 }
             }
-            // If no two elements were swapped by inner loop, then break
         } while (swapped)
         return data
     }
