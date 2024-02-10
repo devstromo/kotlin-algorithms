@@ -16,6 +16,7 @@ Our aim is to provide a comprehensive collection of well-implemented algorithms 
 # Table of Contents
 - [Searching](#searching)
 - [Sequences](#sequences)
+- [Sorting](#sorting)
 
 
 ### Searching
@@ -36,6 +37,9 @@ This section covers various sequence algorithms, showcasing different methods to
    - Tabular
    - Binet's Formula
    - Fast Doubling Method Negative
+
+### Sorting
+- [Shell Sort](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sorting/shell/ShellSort.kt)
 
 
 ## Contributing
