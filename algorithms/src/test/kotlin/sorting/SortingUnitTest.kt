@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Test
 import sorting.bubble.BubbleSort
 import sorting.insertion.InsertionSort
+import sorting.merge.MergeSort
 import sorting.radix.RadixSort
 import sorting.selection.SelectionSort
 import sorting.shell.ShellSort
@@ -15,6 +16,7 @@ class SortingUnitTest {
     private val insertionSort = InsertionSort()
     private val shellSort = ShellSort()
     private val radixSort = RadixSort()
+    private val mergeSort = MergeSort()
 
     @Test
     fun `Test Bubble Sort with randomly ordered array`() {
@@ -22,9 +24,7 @@ class SortingUnitTest {
         val expected = intArrayOf(1, 2, 3, 4, 5)
 
         assertArrayEquals(
-            expected,
-            bubbleSort.sort(array),
-            "The sorted array does not match the expected output."
+            expected, bubbleSort.sort(array), "The sorted array does not match the expected output."
         )
     }
 
@@ -41,9 +41,7 @@ class SortingUnitTest {
         val expected = intArrayOf(11, 12, 22, 25, 64)
 
         assertArrayEquals(
-            expected,
-            selectionSort.sort(array),
-            "The sorted array does not match the expected output."
+            expected, selectionSort.sort(array), "The sorted array does not match the expected output."
         )
     }
 
@@ -101,6 +99,24 @@ class SortingUnitTest {
             expected,
             radixSort.sort(array),
             "The array should be sorted in ascending order with zero and large numbers included."
+        )
+    }
+
+    @Test
+    fun `Test Merge Sort with randomly ordered array`() {
+        val array = intArrayOf(38, 27, 43, 3, 9, 82, 10)
+        val expected = intArrayOf(3, 9, 10, 27, 38, 43, 82)
+        assertArrayEquals(expected, mergeSort.sort(array), "The array should be sorted in ascending order.")
+    }
+
+    @Test
+    fun `Test Merge Sort with negative, positive, and zero values`() {
+        val array = intArrayOf(-3, 0, -5, 8, 4, -2)
+        val expected = intArrayOf(-5, -3, -2, 0, 4, 8)
+        assertArrayEquals(
+            expected,
+            mergeSort.sort(array),
+            "The array should be sorted in ascending order including negative, positive, and zero values."
         )
     }
 }
