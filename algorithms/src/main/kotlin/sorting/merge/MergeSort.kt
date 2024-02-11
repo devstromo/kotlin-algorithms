@@ -49,6 +49,39 @@ class MergeSort {
         return data
     }
 
+    /**
+     * Sorts an array of integers in ascending order using the Bottom-Up Merge Sort algorithm.
+     *
+     * This iterative version of Merge Sort starts with small subarrays of size 1, merging them into
+     * ordered subarrays of size 2, then merges those into subarrays of size 4, and so on, until the whole
+     * array is sorted. This approach does not require recursion.
+     *
+     * @param data The array of integers to be sorted.
+     * @return The sorted array in ascending order.
+     *
+     * Time Complexity:
+     * - Worst-case: O(n log n), where n is the number of elements in the array.
+     * - Average-case: O(n log n), consistent across all cases.
+     * - Best-case: O(n log n), as even in the best case, the entire array must be merged.
+     *
+     * Space Complexity: O(n), due to the temporary arrays used in the merge step, requiring
+     * additional storage proportional to the size of the input array.
+     */
+    fun bottomUpMergeSort(data: IntArray): IntArray {
+        val n = data.size
+        val aux = IntArray(n)
+        var sz = 1
+        while (sz < n) {
+            var low = 0
+            while (low < n - sz) {
+                mergeBottomUp(data, aux, low, low + sz - 1, minOf(low + sz + sz - 1, n - 1))
+                low += sz + sz
+            }
+            sz += sz
+        }
+        return data
+    }
+
     private fun sort(data: IntArray, aux: IntArray, low: Int, high: Int) {
         if (high <= low) return
 
@@ -139,5 +172,23 @@ class MergeSort {
         }
 
         return merged
+    }
+
+    /**
+     * Merges two sorted subarrays into a single sorted subarray.
+     */
+    private fun mergeBottomUp(data: IntArray, aux: IntArray, low: Int, mid: Int, high: Int) {
+        System.arraycopy(data, low, aux, low, high - low + 1)
+
+        var i = low
+        var j = mid + 1
+        for (k in low..high) {
+            when {
+                i > mid -> data[k] = aux[j++]
+                j > high -> data[k] = aux[i++]
+                aux[j] < aux[i] -> data[k] = aux[j++]
+                else -> data[k] = aux[i++]
+            }
+        }
     }
 }
