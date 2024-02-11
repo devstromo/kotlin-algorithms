@@ -43,6 +43,7 @@ This section covers various sequence algorithms, showcasing different methods to
 - [Insertion Sort](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sorting/insertion/InsertionSort.kt)
 - [Selection Sort](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sorting/selection/SelectionSort.kt)
 - [Shell Sort](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sorting/shell/ShellSort.kt)
+- [Radix Sort](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sorting/radix/RadixSort.kt)
 
 ## Contributing
 This is a collaborative project, and contributions are warmly welcomed. Whether it's adding new implementations, improving existing ones, or enhancing documentation, your input is valuable.
