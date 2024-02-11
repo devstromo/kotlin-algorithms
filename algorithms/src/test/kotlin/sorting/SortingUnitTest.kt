@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Test
 import sorting.bubble.BubbleSort
 import sorting.insertion.InsertionSort
+import sorting.radix.RadixSort
 import sorting.selection.SelectionSort
 import sorting.shell.ShellSort
 
@@ -13,6 +14,7 @@ class SortingUnitTest {
     private val selectionSort = SelectionSort()
     private val insertionSort = InsertionSort()
     private val shellSort = ShellSort()
+    private val radixSort = RadixSort()
 
     @Test
     fun `Test Bubble Sort with randomly ordered array`() {
@@ -81,6 +83,24 @@ class SortingUnitTest {
             expected,
             shellSort.sort(array),
             "The array should be sorted in ascending order with negative and positive numbers."
+        )
+    }
+
+    @Test
+    fun `Test Radix Sort with randomly ordered array`() {
+        val array = intArrayOf(170, 45, 75, 90, 802, 24, 2, 66)
+        val expected = intArrayOf(2, 24, 45, 66, 75, 90, 170, 802)
+        assertArrayEquals(expected, radixSort.sort(array), "The array should be sorted in ascending order.")
+    }
+
+    @Test
+    fun `Test Radix Sort with zero and large numbers`() {
+        val array = intArrayOf(0, 1000000, 500, 113, 26)
+        val expected = intArrayOf(0, 26, 113, 500, 1000000)
+        assertArrayEquals(
+            expected,
+            radixSort.sort(array),
+            "The array should be sorted in ascending order with zero and large numbers included."
         )
     }
 }
