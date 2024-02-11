@@ -31,6 +31,86 @@ class MergeSort {
     }
 
     /**
+     * Optimizes Merge Sort by using Insertion Sort for small subarrays, checking if the array
+     * is already in order, and eliminating unnecessary copying to auxiliary arrays.
+     *
+     * @param data The array of integers to be sorted.
+     * @return The sorted array in ascending order.
+     *
+     * Time Complexity:
+     * - Worst-case: O(n log n), improved by optimizations for small arrays and nearly sorted arrays.
+     * - Best-case: O(n) if the array is already sorted (due to the order check).
+     *
+     * Space Complexity: O(n), primarily for the auxiliary space used in merging.
+     */
+    fun optimizedMergeSort(data: IntArray): IntArray {
+        val aux = data.copyOf()
+        sort(data, aux, 0, data.size - 1)
+        return data
+    }
+
+    private fun sort(data: IntArray, aux: IntArray, low: Int, high: Int) {
+        if (high <= low) return
+
+        // Use Insertion Sort for small subarrays for better performance.
+        val CUTOFF = 15
+        if (high <= low + CUTOFF - 1) {
+            insertionSort(data, low, high)
+            return
+        }
+
+        val mid = low + (high - low) / 2
+        sort(aux, data, low, mid)
+        sort(aux, data, mid + 1, high)
+
+        // Check if the array is already in order to skip the merge.
+        if (aux[mid] <= aux[mid + 1]) {
+            System.arraycopy(aux, low, data, low, high - low + 1)
+            return
+        }
+
+        merge(data, aux, low, mid, high)
+    }
+
+    /**
+     * Merges two sorted subarrays into a single sorted subarray.
+     */
+    private fun merge(data: IntArray, aux: IntArray, low: Int, mid: Int, high: Int) {
+        var i = low
+        var j = mid + 1
+        for (k in low..high) {
+            when {
+                i > mid -> data[k] = aux[j++]
+                j > high -> data[k] = aux[i++]
+                aux[j] < aux[i] -> data[k] = aux[j++]
+                else -> data[k] = aux[i++]
+            }
+        }
+    }
+
+    /**
+     * Sorts a subarray using Insertion Sort.
+     */
+    private fun insertionSort(a: IntArray, low: Int, high: Int) {
+        for (i in low..high) {
+            var j = i
+            while (j > low && a[j] < a[j - 1]) {
+                a.swap(j, j - 1)
+                j--
+            }
+        }
+    }
+
+    /**
+     * Swaps two elements in an array.
+     */
+    private fun IntArray.swap(i: Int, j: Int) {
+        val temp = this[i]
+        this[i] = this[j]
+        this[j] = temp
+    }
+
+    /**
      * Merges two sorted arrays into a single sorted array.
      */
     private fun merge(left: IntArray, right: IntArray): IntArray {

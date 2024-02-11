@@ -119,4 +119,26 @@ class SortingUnitTest {
             "The array should be sorted in ascending order including negative, positive, and zero values."
         )
     }
+
+    @Test
+    fun `Test Optimized Merge Sort with randomly ordered array`() {
+        val array = intArrayOf(38, 27, 43, 3, 9, 82, 10)
+        val expected = intArrayOf(3, 9, 10, 27, 38, 43, 82)
+        assertArrayEquals(
+            expected,
+            mergeSort.optimizedMergeSort(array),
+            "The array should be sorted in ascending order."
+        )
+    }
+
+    @Test
+    fun `Test Optimized Merge Sort with nearly sorted array`() {
+        val array = intArrayOf(1, 2, 5, 3, 4, 6)
+        val expected = intArrayOf(1, 2, 3, 4, 5, 6)
+        assertArrayEquals(
+            expected,
+            mergeSort.optimizedMergeSort(array),
+            "The nearly sorted array should be efficiently sorted in ascending order."
+        )
+    }
 }
