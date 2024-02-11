@@ -39,8 +39,10 @@ This section covers various sequence algorithms, showcasing different methods to
    - Fast Doubling Method Negative
 
 ### Sorting
+- [Bubble Sort](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sorting/bubble/BubbleSort.kt)
+- [Insertion Sort](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sorting/insertion/InsertionSort.kt)
+- [Selection Sort](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sorting/selection/SelectionSort.kt)
 - [Shell Sort](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sorting/shell/ShellSort.kt)
-
 
 ## Contributing
 This is a collaborative project, and contributions are warmly welcomed. Whether it's adding new implementations, improving existing ones, or enhancing documentation, your input is valuable.
