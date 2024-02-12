@@ -197,4 +197,23 @@ class SortingUnitTest {
             "The array should be efficiently sorted, demonstrating the effectiveness of the cutoff to insertion sort."
         )
     }
+
+    @Test
+    fun `Test QuickSort 3-Way with many duplicates`() {
+        val array = intArrayOf(2, 3, 3, 2, 3, 2, 2, 3, 1, 2, 1, 3)
+        val expected = intArrayOf(1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3)
+
+        assertArrayEquals(
+            expected,
+            quickSort.sort3Way(array),
+            "The array should be sorted, demonstrating efficiency with duplicates."
+        )
+    }
+
+    @Test
+    fun `Test QuickSort 3-Way with randomly ordered array`() {
+        val array = intArrayOf(9, 4, 6, 2, 8, 5, 7, 3, 1)
+        val expected = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
+        assertArrayEquals(expected, quickSort.sort3Way(array), "The array should be sorted in ascending order.")
+    }
 }

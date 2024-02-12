@@ -15,7 +15,7 @@ class QuickSort {
      *  where n is the number of elements in the array. The worst case occurs when the partition process always picks greatest or smallest element as pivot.
      *
      * Time Complexity:
-     * - Worst-case: O(n log n), we random shuffle to avoid O(n^2)
+     * - Worst-case: O(n log n), random shuffle to avoid O(n^2)
      * - Average-case: O(n log n), due to the split of the array in log n levels and linear work at each level of partitioning.
      * - Best-case: O(n log n), with a good pivot, the array is divided into nearly two equal parts.
      *
@@ -38,7 +38,7 @@ class QuickSort {
      * @return The sorted array in ascending order.
      *
      * Time Complexity:
-     * - Worst-case: O(n log n), but the likelihood is reduced with the cutoff to insertion sort.
+     * - Worst-case: O(n log n), random shuffle to avoid O(n^2)
      * - Average-case: O(n log n), significantly improved for small subarrays due to the insertion sort cutoff.
      * - Best-case: O(n log n), achieved with a good pivot selection strategy.
      *
@@ -48,6 +48,48 @@ class QuickSort {
         shuffle(data) // Randomly shuffle to guarantee performance
         quickSortWithCutoff(data, 0, data.size - 1)
         return data
+    }
+
+    /**
+     * Sorts an array of integers using the QuickSort algorithm with 3-way partitioning.
+     *
+     * This method enhances QuickSort by partitioning the array into three parts:
+     * elements less than the pivot, elements equal to the pivot, and elements greater than the pivot.
+     * This approach is particularly effective for arrays with many duplicate elements, as it
+     * significantly reduces the sorting time by minimizing unnecessary comparisons and swaps.
+     * O(n^2) in the rare case of pathological inputs.
+     *
+     * @param data The array of integers to be sorted.
+     * @return The sorted array in ascending order.
+     *
+     * Time Complexity:
+     * - Worst-case: O(n log n) random shuffle to avoid O(n^2)
+     * - Average-case: O(n log n), significantly improved for arrays with many duplicates.
+     * - Best-case: O(n) for arrays with all or nearly all elements equal.
+     *
+     * Space Complexity: O(log n) for the recursion stack.
+     */
+    fun sort3Way(data: IntArray): IntArray {
+        shuffle(data)
+        quickSort3Way(data, 0, data.lastIndex)
+        return data
+    }
+
+    private fun quickSort3Way(data: IntArray, lo: Int, hi: Int) {
+        if (hi <= lo) return
+        var lt = lo
+        var gt = hi
+        val v = data[lo]
+        var i = lo + 1
+        while (i <= gt) {
+            when {
+                data[i] < v -> data.swap(lt++, i++)
+                data[i] > v -> data.swap(i, gt--)
+                else -> i++
+            }
+        }
+        quickSort3Way(data, lo, lt - 1)
+        quickSort3Way(data, gt + 1, hi)
     }
 
     private fun quickSortHelper(data: IntArray, low: Int, high: Int) {
