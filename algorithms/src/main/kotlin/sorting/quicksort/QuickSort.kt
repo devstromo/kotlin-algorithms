@@ -45,7 +45,7 @@ class QuickSort {
      * Space Complexity: O(log n), due to recursion stack space, slightly improved with the insertion sort cutoff.
      */
     fun optimizedSort(data: IntArray): IntArray {
-        shuffle(data) // Randomly shuffle to guarantee performance
+        shuffle(data)
         quickSortWithCutoff(data, 0, data.size - 1)
         return data
     }

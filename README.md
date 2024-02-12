@@ -48,6 +48,11 @@ This section covers various sequence algorithms, showcasing different methods to
   - Classical approach
   - Top-down optimized approach
   - Bottom-up approach
+- [Quicksort](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sorting/quicksort/QuickSort.kt)
+  - Classical approach
+  - With cutoff
+  - Dijkstra's 3-way partition
+
 
 ## Contributing
 This is a collaborative project, and contributions are warmly welcomed. Whether it's adding new implementations, improving existing ones, or enhancing documentation, your input is valuable.
