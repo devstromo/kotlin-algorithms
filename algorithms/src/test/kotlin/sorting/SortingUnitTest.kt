@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test
 import sorting.bubble.BubbleSort
 import sorting.insertion.InsertionSort
 import sorting.merge.MergeSort
+import sorting.quicksort.QuickSort
 import sorting.radix.RadixSort
 import sorting.selection.SelectionSort
 import sorting.shell.ShellSort
@@ -17,6 +18,7 @@ class SortingUnitTest {
     private val shellSort = ShellSort()
     private val radixSort = RadixSort()
     private val mergeSort = MergeSort()
+    private val quickSort = QuickSort()
 
     @Test
     fun `Test Bubble Sort with randomly ordered array`() {
@@ -157,6 +159,24 @@ class SortingUnitTest {
             expected,
             mergeSort.bottomUpMergeSort(array),
             "The array should be sorted in ascending order with negative and positive numbers."
+        )
+    }
+
+    @Test
+    fun `Test QuickSort with randomly ordered array`() {
+        val array = intArrayOf(10, 7, 8, 9, 1, 5)
+        val expected = intArrayOf(1, 5, 7, 8, 9, 10)
+        assertArrayEquals(expected, quickSort.sort(array), "The array should be sorted in ascending order.")
+    }
+
+    @Test
+    fun `Test QuickSort with negative, positive, and zero values`() {
+        val array = intArrayOf(-3, 0, 2, -5, 4, 1)
+        val expected = intArrayOf(-5, -3, 0, 1, 2, 4)
+        assertArrayEquals(
+            expected,
+            quickSort.sort(array),
+            "The array should be sorted in ascending order including negative, positive, and zero values."
         )
     }
 }
