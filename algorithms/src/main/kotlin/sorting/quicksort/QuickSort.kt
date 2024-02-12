@@ -20,6 +20,7 @@ class QuickSort {
      * Space Complexity: O(log n) due to recursive calls in the stack.
      */
     fun sort(data: IntArray): IntArray {
+        shuffle(data)
         quickSortHelper(data, 0, data.size - 1)
         return data
     }
@@ -50,4 +51,18 @@ class QuickSort {
         this[i] = this[j]
         this[j] = temp
     }
+
+    /**
+     * Randomly shuffles the elements of an array.
+     *
+     * @param data The array to be shuffled.
+     */
+    fun shuffle(data: IntArray) {
+        val rnd = java.util.Random()
+        for (i in data.indices) {
+            val randomIndex = i + rnd.nextInt(data.size - i)
+            data.swap(i, randomIndex)
+        }
+    }
+
 }
