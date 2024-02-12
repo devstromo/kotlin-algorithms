@@ -179,4 +179,22 @@ class SortingUnitTest {
             "The array should be sorted in ascending order including negative, positive, and zero values."
         )
     }
+
+    @Test
+    fun `Test Optimized QuickSort with randomly ordered array`() {
+        val array = intArrayOf(3, 9, 5, 2, 8, 1, 4)
+        val expected = intArrayOf(1, 2, 3, 4, 5, 8, 9)
+        assertArrayEquals(expected, quickSort.optimizedSort(array), "The array should be sorted in ascending order.")
+    }
+
+    @Test
+    fun `Test Optimized QuickSort with small range values`() {
+        val array = intArrayOf(5, 3, 4, 1, 2)
+        val expected = intArrayOf(1, 2, 3, 4, 5)
+        assertArrayEquals(
+            expected,
+            quickSort.optimizedSort(array),
+            "The array should be efficiently sorted, demonstrating the effectiveness of the cutoff to insertion sort."
+        )
+    }
 }
