@@ -3,6 +3,7 @@ package sorting
 import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Test
 import sorting.bubble.BubbleSort
+import sorting.counting.CountingSort
 import sorting.insertion.InsertionSort
 import sorting.merge.MergeSort
 import sorting.quicksort.QuickSort
@@ -19,6 +20,7 @@ class SortingUnitTest {
     private val radixSort = RadixSort()
     private val mergeSort = MergeSort()
     private val quickSort = QuickSort()
+    private val countingSort = CountingSort()
 
     @Test
     fun `Test Bubble Sort with randomly ordered array`() {
@@ -215,5 +217,23 @@ class SortingUnitTest {
         val array = intArrayOf(9, 4, 6, 2, 8, 5, 7, 3, 1)
         val expected = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
         assertArrayEquals(expected, quickSort.sort3Way(array), "The array should be sorted in ascending order.")
+    }
+
+    @Test
+    fun `Test Counting Sort with positive integers`() {
+        val array = intArrayOf(4, 2, 2, 8, 3, 3, 1)
+        val expected = intArrayOf(1, 2, 2, 3, 3, 4, 8)
+        assertArrayEquals(expected, countingSort.sort(array), "The array should be sorted in ascending order.")
+    }
+
+    @Test
+    fun `Test Counting Sort with a single value`() {
+        val array = intArrayOf(1, 1, 1, 1)
+        val expected = intArrayOf(1, 1, 1, 1)
+        assertArrayEquals(
+            expected,
+            countingSort.sort(array),
+            "The array of identical elements should remain unchanged."
+        )
     }
 }
