@@ -52,6 +52,7 @@ This section covers various sequence algorithms, showcasing different methods to
   - Classical approach
   - With cutoff
   - Dijkstra's 3-way partition
+- [Counting sort](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sorting/counting/CountingSort.kt)
 
 
 ## Contributing
