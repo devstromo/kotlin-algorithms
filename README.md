@@ -1,6 +1,6 @@
-# Kotlin Algorithms & Data Structure
+# Kotlin Algorithms & Data Structures
 
-Welcome to the **Kotlin Algorithms & Data Structure** repository! This open-source project is dedicated to implementing a wide range of algorithms and data structures using Kotlin, a modern programming language that offers clarity, conciseness, and powerful features.
+Welcome to the **Kotlin Algorithms & Data Structures** repository! This open-source project is dedicated to implementing a wide range of algorithms and data structures using Kotlin, a modern programming language that offers clarity, conciseness, and powerful features.
 
 ## Our Mission
 Our aim is to provide a comprehensive collection of well-implemented algorithms and data structures in Kotlin, making it an invaluable resource for developers, students, and educators alike. Whether you're preparing for technical interviews, teaching computer science concepts, or just looking to explore algorithms in a new language, this repository has something for you.
