@@ -20,4 +20,20 @@ class DistanceKtUnitTest {
         assertEquals(0.0, euclidean(3.0, 3.0, 3.0, 3.0), delta,
             "The Euclidean distance between two identical points should be 0.0")
     }
+
+
+    @Test
+    fun `Test Calculate Manhattan Distance`() {
+        assertEquals(8.0, manhattan(1.0, 2.0, 5.0, 6.0),
+            "The Manhattan distance between (1,2) and (5,6) should be 8.0")
+
+        assertEquals(17.0, manhattan(0.0, 0.0, -5.0, -12.0),
+            "The Manhattan distance between (0,0) and (-5,-12) should be 17.0")
+
+        assertEquals(14.0, manhattan(-7.0, -4.0, -1.0, 4.0),
+            "The Manhattan distance between (-7,-4) and (-1,4) should be 14.0")
+
+        assertEquals(0.0, manhattan(3.0, 3.0, 3.0, 3.0),
+            "The Manhattan distance between two identical points should be 0.0")
+    }
 }
