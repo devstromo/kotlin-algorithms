@@ -1,6 +1,7 @@
-package maths
+package distance
 
 import kotlin.math.sqrt
+
 
 /**
  * Calculates the Euclidean distance between two points in a 2D space.

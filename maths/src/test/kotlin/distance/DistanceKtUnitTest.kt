@@ -1,4 +1,4 @@
-package maths
+package distance
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
@@ -17,7 +17,7 @@ class DistanceKtUnitTest {
         assertEquals(10.0, euclidean(-7.0, -4.0, -1.0, 4.0), delta,
             "The Euclidean distance between (-7,-4) and (-1,4) should be approximately 10.0")
 
-       assertEquals(0.0, euclidean(3.0, 3.0, 3.0, 3.0), delta,
+        assertEquals(0.0, euclidean(3.0, 3.0, 3.0, 3.0), delta,
             "The Euclidean distance between two identical points should be 0.0")
     }
 }

@@ -11,6 +11,7 @@
     <modules>
         <module>data-structure</module>
         <module>algorithms</module>
+        <module>maths</module>
     </modules>
 
     <properties>
