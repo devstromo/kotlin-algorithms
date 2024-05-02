@@ -44,3 +44,27 @@ fun euclidean(x1: Double, y1: Double, x2: Double, y2: Double): Double {
 fun manhattan(x1: Double, y1: Double, x2: Double, y2: Double): Double {
     return abs(x2 - x1) + abs(y2 - y1)
 }
+
+/**
+ * Calculates the Hamming distance between two strings.
+ * The Hamming distance is the number of positions at which the corresponding characters of the two strings are different.
+ *
+ * @param str1 The first string to compare.
+ * @param str2 The second string to compare.
+ * @return The Hamming distance as an integer.
+ * @throws IllegalArgumentException If the strings are not of the same length.
+ *
+ */
+fun hammingDistance(str1: String, str2: String): Int {
+    if (str1.length != str2.length) {
+        throw IllegalArgumentException("Strings must be of the same length")
+    }
+
+    var distance = 0
+    for (i in str1.indices) {
+        if (str1[i] != str2[i]) {
+            distance++
+        }
+    }
+    return distance
+}

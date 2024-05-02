@@ -2,6 +2,7 @@ package distance
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 
 class DistanceKtUnitTest {
     @Test
@@ -35,5 +36,22 @@ class DistanceKtUnitTest {
 
         assertEquals(0.0, manhattan(3.0, 3.0, 3.0, 3.0),
             "The Manhattan distance between two identical points should be 0.0")
+    }
+
+
+    @Test
+    fun `Test hamming distance`() {
+        assertEquals(0, hammingDistance("karat", "karat"))
+        assertEquals(2, hammingDistance("karat", "karma"))
+        assertEquals(4, hammingDistance("abcd", "dcba"))
+    }
+
+    @Test
+    fun `Test hamming distance with strings of different length`() {
+        val string1 = "karat"
+        val string2 = "karmas"
+        assertThrows<IllegalArgumentException> {
+            hammingDistance(string1, string2)
+        }
     }
 }
