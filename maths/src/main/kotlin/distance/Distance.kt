@@ -68,3 +68,27 @@ fun hammingDistance(str1: String, str2: String): Int {
     }
     return distance
 }
+
+/**
+ * Calculates the average Hamming distance between two lists of integers representing bit strings.
+ * The average Hamming distance is defined as the sum of the absolute differences between corresponding
+ * bits in the two lists, divided by the number of bits (list size). This function requires that both
+ * bit lists be of the same length.
+ * ```
+ * Hamming Distance = (sum for i to N abs(v1[i] — v2[i]))/N
+ * ```
+ * @param bits1 The first list of bits.
+ * @param bits2 The second list of bits.
+ * @return The average Hamming distance as a Double.
+ * @throws IllegalArgumentException If the two bit lists are not of the same length.
+ */
+fun hammingAvgDistance(bits1: List<Int>, bits2: List<Int>): Double {
+    if (bits1.size != bits2.size) {
+        throw IllegalArgumentException("Both bit lists must be of the same length")
+    }
+
+    val distance = bits1.zip(bits2).sumOf { (bit1, bit2) ->
+        abs(bit1 - bit2)
+    }
+    return distance.toDouble() / bits1.size
+}
