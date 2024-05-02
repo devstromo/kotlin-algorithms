@@ -24,6 +24,8 @@ Our aim is to provide a comprehensive collection of well-implemented algorithms 
 - [Distance](https://github.com/devstromo/kotlin-algorithms/blob/main/maths/src/main/kotlin/distance/Distance.kt)
   - Euclidean
   - Manhattan
+  - Hamming
+  - Levenshtein
 
 ### Searching
 The Searching section of this repository focuses on implementing various algorithms to efficiently search for data within different data structures. Searching algorithms are fundamental to computer science and software development, allowing us to find specific elements within datasets quickly. This section covers a range of searching techniques, from simple linear searches to more complex algorithms like binary search and beyond.
