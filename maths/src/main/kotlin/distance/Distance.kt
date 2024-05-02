@@ -92,3 +92,32 @@ fun hammingAvgDistance(bits1: List<Int>, bits2: List<Int>): Double {
     }
     return distance.toDouble() / bits1.size
 }
+
+fun levenshteinDistance(s1: String, s2: String): Int {
+    val n = s1.length
+    val m = s2.length
+
+    // Create the matrix
+    val dp = Array(n + 1) { IntArray(m + 1) }
+
+    for (i in 0..n) {
+        dp[i][0] = i
+    }
+    for (j in 0..m) {
+        dp[0][j] = j
+    }
+
+    for (i in 1..n) {
+        for (j in 1..m) {
+            val cost = if (s1[i - 1] == s2[j - 1]) 0 else 1
+
+            dp[i][j] = minOf(
+                dp[i - 1][j] + 1,    // Deletion
+                dp[i][j - 1] + 1,    // Insertion
+                dp[i - 1][j - 1] + cost // Substitution
+            )
+        }
+    }
+
+    return dp[n][m]
+}

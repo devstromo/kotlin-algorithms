@@ -75,4 +75,10 @@ class DistanceKtUnitTest {
     fun `Test hamming distance with average`() {
         assertEquals(0.33333333333333, hammingAvgDistance(listOf(0, 0, 0, 0, 0, 1), listOf(0, 0, 0, 0, 1, 0)), 0.1)
     }
+
+    @Test
+    fun `Test levenshtein distance`() {
+        assertEquals(3, levenshteinDistance("sitting", "kitten"))
+        assertEquals(2, levenshteinDistance("karat", "karmas"))
+    }
 }
