@@ -110,11 +110,23 @@ class BinarySearchTree<T : Comparable<T>> : ITree<T> {
         return heightRec(root)
     }
 
+    override fun printTree() {
+        printTreeRec(root, "", true)
+    }
+
     private fun heightRec(node: Node<T>?): Int {
         return if (node == null) {
             0
         } else {
             1 + maxOf(heightRec(node.left), heightRec(node.right))
+        }
+    }
+
+    private fun printTreeRec(node: Node<T>?, prefix: String, isTail: Boolean) {
+        if (node != null) {
+            println(prefix + (if (isTail) "└── " else "├── ") + node.value)
+            printTreeRec(node.left, prefix + if (isTail) "    " else "│   ", false)
+            printTreeRec(node.right, prefix + if (isTail) "    " else "│   ", true)
         }
     }
 }

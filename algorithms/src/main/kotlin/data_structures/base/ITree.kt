@@ -46,4 +46,9 @@ interface ITree<T> {
      * @return the height of the tree
      */
     fun height(): Int
+
+    /**
+     * Prints the tree structure in a readable format.
+     */
+    fun printTree()
 }

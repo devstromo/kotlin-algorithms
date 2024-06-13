@@ -33,6 +33,10 @@ class BinaryTree<T> : ITree<T> {
         return heightRec(root)
     }
 
+    override fun printTree() {
+        printTreeRec(root, "", true)
+    }
+
     private fun insertRec(node: Node<T>?, value: T): Node<T> {
         if (node == null) {
             return Node(value)
@@ -113,5 +117,13 @@ class BinaryTree<T> : ITree<T> {
         val (newRight, removedRight) = removeRec(node.right, value)
         node.right = newRight
         return Pair(node, removedRight)
+    }
+
+    private fun printTreeRec(node: Node<T>?, prefix: String, isTail: Boolean) {
+        if (node != null) {
+            println(prefix + (if (isTail) "└── " else "├── ") + node.value)
+            printTreeRec(node.left, prefix + if (isTail) "    " else "│   ", false)
+            printTreeRec(node.right, prefix + if (isTail) "    " else "│   ", true)
+        }
     }
 }
