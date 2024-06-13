@@ -1,20 +1,19 @@
-package data_structures
+package data_structures.trees
 
-import data_structures.trees.BinaryTree
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class BinaryTreeUnitTest {
-    private lateinit var tree: BinaryTree<Int>
+class BinarySearchTreeUnitTest {
+    private lateinit var tree: BinarySearchTree<Int>
 
     @BeforeEach
     fun setUp() {
-        tree = BinaryTree()
+        tree = BinarySearchTree()
     }
 
     @Test
-    fun `Test BT Insert And Find`() {
+    fun `Test Insert And Find`() {
         tree.insert(10)
         tree.insert(5)
         tree.insert(15)
@@ -26,7 +25,7 @@ class BinaryTreeUnitTest {
     }
 
     @Test
-    fun `Test BT Remove`() {
+    fun `Test Remove`() {
         tree.insert(10)
         tree.insert(5)
         tree.insert(15)
@@ -40,7 +39,7 @@ class BinaryTreeUnitTest {
     }
 
     @Test
-    fun `Test BT Traverse`() {
+    fun `Test Traverse`() {
         val values = mutableListOf<Int>()
         tree.insert(10)
         tree.insert(5)
@@ -48,11 +47,11 @@ class BinaryTreeUnitTest {
 
         tree.traverse { values.add(it) }
 
-        assertEquals(listOf(5, 10, 15), values.sorted(), "The tree should traverse in sorted order")
+        assertEquals(listOf(5, 10, 15), values, "The tree should traverse in-order")
     }
 
     @Test
-    fun `Test BT Size`() {
+    fun `Test Size`() {
         assertEquals(0, tree.size(), "The size of an empty tree should be 0")
 
         tree.insert(10)
@@ -66,7 +65,7 @@ class BinaryTreeUnitTest {
     }
 
     @Test
-    fun `Test BT Height`() {
+    fun `Test Height`() {
         assertEquals(0, tree.height(), "The height of an empty tree should be 0")
 
         tree.insert(10)
