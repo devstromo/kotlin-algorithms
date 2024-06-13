@@ -22,6 +22,14 @@ class BinarySearchTreeUnitTest {
         assertTrue(tree.find(5), "The tree should contain 5")
         assertTrue(tree.find(15), "The tree should contain 15")
         assertFalse(tree.find(20), "The tree should not contain 20")
+
+        tree.insert(3)
+
+        tree.insert(17)
+        tree.insert(7)
+        tree.insert(9)
+        tree.insert(8)
+        tree.printTree()
     }
 
     @Test

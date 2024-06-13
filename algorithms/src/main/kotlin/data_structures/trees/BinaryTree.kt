@@ -34,7 +34,11 @@ class BinaryTree<T> : ITree<T> {
     }
 
     override fun printTree() {
-        printTreeRec(root, "", true)
+        if (root == null) {
+            println("Tree is empty")
+        } else {
+            printTreeRec(root, "", true)
+        }
     }
 
     private fun insertRec(node: Node<T>?, value: T): Node<T> {
@@ -119,11 +123,14 @@ class BinaryTree<T> : ITree<T> {
         return Pair(node, removedRight)
     }
 
+
     private fun printTreeRec(node: Node<T>?, prefix: String, isTail: Boolean) {
         if (node != null) {
             println(prefix + (if (isTail) "└── " else "├── ") + node.value)
-            printTreeRec(node.left, prefix + if (isTail) "    " else "│   ", false)
-            printTreeRec(node.right, prefix + if (isTail) "    " else "│   ", true)
+            val children = listOf(node.left, node.right).filterNotNull()
+            for ((index, child) in children.withIndex()) {
+                printTreeRec(child, prefix + if (isTail) "    " else "│   ", index == children.size - 1)
+            }
         }
     }
 }
