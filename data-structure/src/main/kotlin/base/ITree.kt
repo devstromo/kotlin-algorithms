@@ -1,4 +1,4 @@
-package data_structures.base
+package base
 
 interface ITree<T> {
     /**

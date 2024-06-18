@@ -1,5 +1,3 @@
-package data_structures
-
 import data_structures.trees.BinaryTree
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach

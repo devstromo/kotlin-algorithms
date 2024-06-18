@@ -1,6 +1,6 @@
-package data_structures.trees
+package trees
 
-import data_structures.base.ITree
+import base.ITree
 
 /**
  * A class representing a binary search tree structure.
