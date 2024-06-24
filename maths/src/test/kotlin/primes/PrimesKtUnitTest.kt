@@ -8,17 +8,17 @@ internal class PrimesKtUnitTest {
     @Test
     fun testIsPrime() {
         // Known primes
-        assertTrue(isPrimeSieve(2), "2 should be prime")
-        assertTrue(isPrimeSieve(3), "3 should be prime")
-        assertTrue(isPrimeSieve(5), "5 should be prime")
-        assertTrue(isPrimeSieve(7), "7 should be prime")
-        assertTrue(isPrimeSieve(11), "11 should be prime")
-        assertTrue(isPrimeSieve(13), "13 should be prime")
-        assertTrue(isPrimeSieve(17), "17 should be prime")
-        assertTrue(isPrimeSieve(19), "19 should be prime")
-        assertTrue(isPrimeSieve(23), "23 should be prime")
-        assertTrue(isPrimeSieve(29), "29 should be prime")
-        assertTrue(isPrimeSieve(31), "31 should be prime")
+        assertTrue(isPrimeSieve(2))
+        assertTrue(isPrimeSieve(3))
+        assertTrue(isPrimeSieve(5))
+        assertTrue(isPrimeSieve(7))
+        assertTrue(isPrimeSieve(11))
+        assertTrue(isPrimeSieve(13))
+        assertTrue(isPrimeSieve(17))
+        assertTrue(isPrimeSieve(19))
+        assertTrue(isPrimeSieve(23))
+        assertTrue(isPrimeSieve(29))
+        assertTrue(isPrimeSieve(31))
 
         // Known non-primes
         assertFalse(isPrimeSieve(0))
