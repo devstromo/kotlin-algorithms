@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test
 internal class PrimesKtUnitTest {
 
     @Test
-    fun testIsPrime() {
-        // Known primes
+    fun `Test IsPrime using the Sieve of Eratosthenes`() {
         assertTrue(isPrimeSieve(2))
         assertTrue(isPrimeSieve(3))
         assertTrue(isPrimeSieve(5))
@@ -20,7 +19,6 @@ internal class PrimesKtUnitTest {
         assertTrue(isPrimeSieve(29))
         assertTrue(isPrimeSieve(31))
 
-        // Known non-primes
         assertFalse(isPrimeSieve(0))
         assertFalse(isPrimeSieve(1))
         assertFalse(isPrimeSieve(4))
