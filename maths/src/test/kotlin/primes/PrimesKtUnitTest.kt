@@ -41,6 +41,41 @@ internal class PrimesKtUnitTest {
     }
 
     @Test
+    fun `Test IsPrime using optimized classical approach`() {
+        assertTrue(isPrimeOptimized(2))
+        assertTrue(isPrimeOptimized(3))
+        assertTrue(isPrimeOptimized(5))
+        assertTrue(isPrimeOptimized(7))
+        assertTrue(isPrimeOptimized(11))
+        assertTrue(isPrimeOptimized(13))
+        assertTrue(isPrimeOptimized(17))
+        assertTrue(isPrimeOptimized(19))
+        assertTrue(isPrimeOptimized(23))
+        assertTrue(isPrimeOptimized(29))
+        assertTrue(isPrimeOptimized(31))
+
+        assertFalse(isPrimeOptimized(0))
+        assertFalse(isPrimeOptimized(1))
+        assertFalse(isPrimeOptimized(4))
+        assertFalse(isPrimeOptimized(6))
+        assertFalse(isPrimeOptimized(8))
+        assertFalse(isPrimeOptimized(9))
+        assertFalse(isPrimeOptimized(10))
+        assertFalse(isPrimeOptimized(12))
+        assertFalse(isPrimeOptimized(14))
+        assertFalse(isPrimeOptimized(15))
+        assertFalse(isPrimeOptimized(16))
+        assertFalse(isPrimeOptimized(18))
+        assertFalse(isPrimeOptimized(20))
+        assertFalse(isPrimeOptimized(21))
+        assertFalse(isPrimeOptimized(22))
+        assertFalse(isPrimeOptimized(24))
+        assertFalse(isPrimeOptimized(25))
+
+        assertFalse(isPrimeOptimized(-1))
+    }
+
+    @Test
     fun `Test IsPrime using the Sieve of Eratosthenes`() {
         assertTrue(isPrimeSieve(2))
         assertTrue(isPrimeSieve(3))

@@ -1,5 +1,7 @@
 package primes
 
+import kotlin.math.sqrt
+
 /**
  * Checks if a number is prime using a classic approach.
  *
@@ -14,6 +16,28 @@ package primes
 fun isPrimeClassic(n: Int): Boolean {
     if (n <= 1) return false
     for (i in 2..<n) {
+        if (n % i == 0) {
+            return false
+        }
+    }
+    return true
+}
+
+/**
+ * Checks if a number is prime using an optimized approach.
+ *
+ * This method checks for primality by testing divisibility from 2 up to the square root of the number.
+ * If any number in this range divides the input number without a remainder, the number is not prime.
+ *
+ * @param n The number to check for primality.
+ * @return `true` if the number is prime, `false` otherwise.
+ *
+ * @complexity The time complexity of this method is O(sqrt(n)), where n is the input number.
+ */
+fun isPrimeOptimized(n: Int): Boolean {
+    if (n <= 1) return false
+    val end = sqrt(n.toDouble()).toInt()
+    for (i in 2..end) {
         if (n % i == 0) {
             return false
         }
