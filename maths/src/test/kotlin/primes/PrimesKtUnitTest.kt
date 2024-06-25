@@ -6,6 +6,41 @@ import org.junit.jupiter.api.Test
 internal class PrimesKtUnitTest {
 
     @Test
+    fun `Test IsPrime using classical approach`() {
+        assertTrue(isPrimeClassic(2))
+        assertTrue(isPrimeClassic(3))
+        assertTrue(isPrimeClassic(5))
+        assertTrue(isPrimeClassic(7))
+        assertTrue(isPrimeClassic(11))
+        assertTrue(isPrimeClassic(13))
+        assertTrue(isPrimeClassic(17))
+        assertTrue(isPrimeClassic(19))
+        assertTrue(isPrimeClassic(23))
+        assertTrue(isPrimeClassic(29))
+        assertTrue(isPrimeClassic(31))
+
+        assertFalse(isPrimeClassic(0))
+        assertFalse(isPrimeClassic(1))
+        assertFalse(isPrimeClassic(4))
+        assertFalse(isPrimeClassic(6))
+        assertFalse(isPrimeClassic(8))
+        assertFalse(isPrimeClassic(9))
+        assertFalse(isPrimeClassic(10))
+        assertFalse(isPrimeClassic(12))
+        assertFalse(isPrimeClassic(14))
+        assertFalse(isPrimeClassic(15))
+        assertFalse(isPrimeClassic(16))
+        assertFalse(isPrimeClassic(18))
+        assertFalse(isPrimeClassic(20))
+        assertFalse(isPrimeClassic(21))
+        assertFalse(isPrimeClassic(22))
+        assertFalse(isPrimeClassic(24))
+        assertFalse(isPrimeClassic(25))
+
+        assertFalse(isPrimeClassic(-1))
+    }
+
+    @Test
     fun `Test IsPrime using the Sieve of Eratosthenes`() {
         assertTrue(isPrimeSieve(2))
         assertTrue(isPrimeSieve(3))
@@ -37,7 +72,6 @@ internal class PrimesKtUnitTest {
         assertFalse(isPrimeSieve(24))
         assertFalse(isPrimeSieve(25))
 
-        // Edge cases
         assertFalse(isPrimeSieve(-1))
     }
 }

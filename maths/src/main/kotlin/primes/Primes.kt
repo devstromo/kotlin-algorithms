@@ -1,6 +1,28 @@
 package primes
 
 /**
+ * Checks if a number is prime using a classic approach.
+ *
+ * This method checks for primality by testing divisibility from 2 up to (but not including) the number itself.
+ * If any number in this range divides the input number without a remainder, the number is not prime.
+ *
+ * @param n The number to check for primality.
+ * @return `true` if the number is prime, `false` otherwise.
+ *
+ * @complexity The time complexity of this method is O(n), where n is the input number.
+ */
+fun isPrimeClassic(n: Int): Boolean {
+    if (n <= 1) return false
+    for (i in 2..<n) {
+        if (n % i == 0) {
+            return false
+        }
+    }
+    return true
+}
+
+
+/**
  * Checks if a number is prime using the Sieve of Eratosthenes algorithm.
  *
  * This function first generates a list of primes up to the given number using the Sieve of Eratosthenes.
