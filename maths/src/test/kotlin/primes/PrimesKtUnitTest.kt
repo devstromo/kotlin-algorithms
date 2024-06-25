@@ -76,6 +76,42 @@ internal class PrimesKtUnitTest {
     }
 
     @Test
+    fun `Test IsPrime using 6n+1 or 6n-1 approach`() {
+        assertTrue(isPrimeOptimizedSecondApproach(2))
+        assertTrue(isPrimeOptimizedSecondApproach(3))
+        assertTrue(isPrimeOptimizedSecondApproach(5))
+        assertTrue(isPrimeOptimizedSecondApproach(7))
+        assertTrue(isPrimeOptimizedSecondApproach(11))
+        assertTrue(isPrimeOptimizedSecondApproach(13))
+        assertTrue(isPrimeOptimizedSecondApproach(17))
+        assertTrue(isPrimeOptimizedSecondApproach(19))
+        assertTrue(isPrimeOptimizedSecondApproach(23))
+        assertTrue(isPrimeOptimizedSecondApproach(29))
+        assertTrue(isPrimeOptimizedSecondApproach(31))
+
+        assertFalse(isPrimeOptimizedSecondApproach(0))
+        assertFalse(isPrimeOptimizedSecondApproach(1))
+        assertFalse(isPrimeOptimizedSecondApproach(4))
+        assertFalse(isPrimeOptimizedSecondApproach(6))
+        assertFalse(isPrimeOptimizedSecondApproach(8))
+        assertFalse(isPrimeOptimizedSecondApproach(9))
+        assertFalse(isPrimeOptimizedSecondApproach(10))
+        assertFalse(isPrimeOptimizedSecondApproach(12))
+        assertFalse(isPrimeOptimizedSecondApproach(14))
+        assertFalse(isPrimeOptimizedSecondApproach(15))
+        assertFalse(isPrimeOptimizedSecondApproach(16))
+        assertFalse(isPrimeOptimizedSecondApproach(18))
+        assertFalse(isPrimeOptimizedSecondApproach(20))
+        assertFalse(isPrimeOptimizedSecondApproach(21))
+        assertFalse(isPrimeOptimizedSecondApproach(22))
+        assertFalse(isPrimeOptimizedSecondApproach(24))
+        assertFalse(isPrimeOptimizedSecondApproach(25))
+
+        assertFalse(isPrimeOptimizedSecondApproach(-1))
+    }
+
+
+    @Test
     fun `Test IsPrime using the Sieve of Eratosthenes`() {
         assertTrue(isPrimeSieve(2))
         assertTrue(isPrimeSieve(3))
