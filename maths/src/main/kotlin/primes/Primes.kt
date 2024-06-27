@@ -1,6 +1,9 @@
 package primes
 
+import maths.gcd
+import maths.power
 import kotlin.math.sqrt
+import kotlin.random.Random
 
 /**
  * Checks if a number is prime using a classic approach.
@@ -97,4 +100,38 @@ fun isPrimeSieve(n: Int): Boolean {
     }
 
     return isPrime[n]
+}
+
+/**
+ * Checks if a number is prime using the Fermat primality test.
+ *
+ * This function uses the Fermat primality test to check if a number is prime.
+ * It tries `k` times to test if `n` is a prime number.
+ *
+ * @param n the number to check for primality
+ * @param k the number of iterations to perform the test
+ * @return `true` if `n` is probably prime, `false` otherwise
+ *
+ */
+fun isPrimeFermat(n: Int, k: Int): Boolean {
+    // Corner cases
+    if (n <= 1 || n == 4) return false
+    if (n <= 3) return true
+
+    var attempts = k
+    while (attempts > 0) {
+        // Pick a random number in [2..n-2]
+        // Above corner cases make sure that n > 4
+        val a = 2 + Random.nextInt(n - 4)
+
+        // Checking if a and n are co-prime
+        if (gcd(n, a) != 1) return false
+
+        // Fermat's little theorem
+        if (power(a.toLong(), n - 1, n) != 1L) return false
+
+        attempts--
+    }
+
+    return true
 }

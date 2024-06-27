@@ -145,4 +145,25 @@ internal class PrimesKtUnitTest {
 
         assertFalse(isPrimeSieve(-1))
     }
+
+    @Test
+    fun `Test IsPrime using the Fermat's Primality Test`() {
+        assertFalse(isPrimeFermat(0, 5))
+        assertFalse(isPrimeFermat(1, 5))
+        assertFalse(isPrimeFermat(4, 5))
+        assertTrue(isPrimeFermat(2, 5))
+        assertTrue(isPrimeFermat(3, 5))
+        assertTrue(isPrimeFermat(5, 5))
+        assertTrue(isPrimeFermat(11, 5))
+        assertTrue(isPrimeFermat(13, 5))
+        assertTrue(isPrimeFermat(17, 5))
+        assertTrue(isPrimeFermat(19, 5))
+        assertFalse(isPrimeFermat(6, 5))
+        assertFalse(isPrimeFermat(9, 5))
+        assertFalse(isPrimeFermat(15, 5))
+        assertFalse(isPrimeFermat(21, 5))
+        assertFalse(isPrimeFermat(25, 5))
+        assertTrue(isPrimeFermat(10007, 5))
+        assertFalse(isPrimeFermat(10005, 5))
+    }
 }
