@@ -1,5 +1,7 @@
 package maths
 
+import kotlin.math.abs
+
 /**
  * Computes (base^exp) % mod using iterative method to perform modular exponentiation.
  *
@@ -24,4 +26,27 @@ fun power(
         b = (b * b) % mod
     }
     return result
+}
+
+/**
+ * Computes the greatest common divisor (GCD) of two integers using the Euclidean algorithm.
+ *
+ * The GCD of two integers is the largest positive integer that divides both numbers without leaving a remainder.
+ * This function works for both positive and negative integers.
+ *
+ * @param a the first integer
+ * @param b the second integer
+ * @return the greatest common divisor of `a` and `b`
+ *
+ */
+fun gcd(a: Int, b: Int): Int {
+    val absA = abs(a)
+    val absB = abs(b)
+    return if (absA < absB) {
+        gcd(absB, absA)
+    } else if (absB == 0) {
+        absA
+    } else {
+        gcd(absB, absA % absB)
+    }
 }

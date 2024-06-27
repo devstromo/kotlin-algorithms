@@ -21,4 +21,24 @@ class MathUtilKtUnitTest {
         assertEquals(1L, power(1000, 0, 1000))
         assertEquals(1L, power(0, 0, 1000))
     }
+
+
+    @Test
+    fun `Test Gcd`() {
+        assertEquals(1, gcd(1, 1))
+        assertEquals(1, gcd(2, 3))
+        assertEquals(2, gcd(4, 2))
+        assertEquals(3, gcd(9, 6))
+        assertEquals(5, gcd(10, 5))
+        assertEquals(1, gcd(-2, 3))
+        assertEquals(2, gcd(4, -2))
+        assertEquals(3, gcd(-9, 6))
+        assertEquals(5, gcd(10, -5))
+        assertEquals(10, gcd(10, 0))
+        assertEquals(10, gcd(0, 10))
+        assertEquals(0, gcd(0, 0))
+        assertEquals(1000000, gcd(1000000, 0))
+        assertEquals(500000, gcd(1000000, 500000))
+        assertEquals(1, gcd(1234567, 890123))
+    }
 }
