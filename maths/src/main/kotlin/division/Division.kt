@@ -46,3 +46,37 @@ fun divisionWithLoop(a: Long, b: Long): Long {
         result
     }
 }
+
+/**
+ * Performs division of two long integers using a recursive approach.
+ *
+ * This method calculates the quotient of `a` divided by `b` by repeatedly subtracting the absolute value of `b` from the absolute value of `a`
+ * until the absolute value of `a` is less than the absolute value of `b`. It handles negative numbers by adjusting the sign of the result accordingly.
+ *
+ * @param a The dividend.
+ * @param b The divisor.
+ * @return The quotient of `a` divided by `b`.
+ *
+ * @throws ArithmeticException if `b` is zero.
+ */
+fun divisionRecursive(a: Long, b: Long): Long {
+    require(b != 0L) { "Divisor cannot be zero." }
+
+    val absA = kotlin.math.abs(a)
+    val absB = kotlin.math.abs(b)
+
+    fun recursiveDiv(dividend: Long, divisor: Long): Long {
+        return if (dividend < divisor) {
+            0
+        } else {
+            1 + recursiveDiv(dividend - divisor, divisor)
+        }
+    }
+
+    val result = recursiveDiv(absA, absB)
+    return if ((a < 0 && b > 0) || (a > 0 && b < 0)) {
+        -result
+    } else {
+        result
+    }
+}

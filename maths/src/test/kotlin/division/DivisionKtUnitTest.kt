@@ -50,4 +50,38 @@ class DivisionKtUnitTest {
         assertEquals(5000000000, divisionWithLoop(10000000000, 2))
         assertEquals(2500000000, divisionWithLoop(10000000000, 4))
     }
+
+    @Test
+    fun `Test division using recursion`() {
+        // Positive numbers
+        assertEquals(1, divisionRecursive(5, 5))
+        assertEquals(1, divisionRecursive(6, 5))
+        assertEquals(2, divisionRecursive(10, 5))
+        assertEquals(1, divisionRecursive(10, 8))
+
+        // Negative dividend
+        assertEquals(-1, divisionRecursive(-5, 5))
+        assertEquals(-1, divisionRecursive(-6, 5))
+        assertEquals(-2, divisionRecursive(-10, 5))
+        assertEquals(-1, divisionRecursive(-10, 8))
+
+        // Negative divisor
+        assertEquals(-1, divisionRecursive(5, -5))
+        assertEquals(-1, divisionRecursive(6, -5))
+        assertEquals(-2, divisionRecursive(10, -5))
+        assertEquals(-1, divisionRecursive(10, -8))
+
+        // Both negative
+        assertEquals(1, divisionRecursive(-5, -5))
+        assertEquals(1, divisionRecursive(-6, -5))
+        assertEquals(2, divisionRecursive(-10, -5))
+        assertEquals(1, divisionRecursive(-10, -8))
+
+        // Zero dividend
+        assertEquals(0, divisionRecursive(0, 5))
+        assertEquals(0, divisionRecursive(0, -5))
+
+        // Zero divisor
+        assertThrows<IllegalArgumentException> { divisionRecursive(5, 0) }
+    }
 }
