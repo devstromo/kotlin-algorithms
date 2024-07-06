@@ -2,6 +2,7 @@ package division
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 
 class DivisionKtUnitTest {
     @Test
@@ -10,5 +11,43 @@ class DivisionKtUnitTest {
         assertEquals(1, division(6, 5))
         assertEquals(2, division(10, 5))
         assertEquals(1, division(10, 8))
+    }
+
+    @Test
+    fun `Test division using loop`() {
+        // Positive numbers
+        assertEquals(1, divisionWithLoop(5, 5))
+        assertEquals(1, divisionWithLoop(6, 5))
+        assertEquals(2, divisionWithLoop(10, 5))
+        assertEquals(1, divisionWithLoop(10, 8))
+
+        // Negative dividend
+        assertEquals(-1, divisionWithLoop(-5, 5))
+        assertEquals(-1, divisionWithLoop(-6, 5))
+        assertEquals(-2, divisionWithLoop(-10, 5))
+        assertEquals(-1, divisionWithLoop(-10, 8))
+
+        // Negative divisor
+        assertEquals(-1, divisionWithLoop(5, -5))
+        assertEquals(-1, divisionWithLoop(6, -5))
+        assertEquals(-2, divisionWithLoop(10, -5))
+        assertEquals(-1, divisionWithLoop(10, -8))
+
+        // Both negative
+        assertEquals(1, divisionWithLoop(-5, -5))
+        assertEquals(1, divisionWithLoop(-6, -5))
+        assertEquals(2, divisionWithLoop(-10, -5))
+        assertEquals(1, divisionWithLoop(-10, -8))
+
+        // Zero dividend
+        assertEquals(0, divisionWithLoop(0, 5))
+        assertEquals(0, divisionWithLoop(0, -5))
+
+        // Zero divisor
+        assertThrows<IllegalArgumentException> { divisionWithLoop(5, 0) }
+
+        // Large numbers
+        assertEquals(5000000000, divisionWithLoop(10000000000, 2))
+        assertEquals(2500000000, divisionWithLoop(10000000000, 4))
     }
 }
