@@ -25,7 +25,7 @@ fun division(a: Long, b: Long): Long {
  * @param b The divisor.
  * @return The quotient of `a` divided by `b`.
  *
- * @throws ArithmeticException if `b` is zero.
+ * @throws IllegalArgumentException if `b` is zero.
  */
 fun divisionWithLoop(a: Long, b: Long): Long {
     require(b != 0L) { "Divisor cannot be zero." }
@@ -57,7 +57,7 @@ fun divisionWithLoop(a: Long, b: Long): Long {
  * @param b The divisor.
  * @return The quotient of `a` divided by `b`.
  *
- * @throws ArithmeticException if `b` is zero.
+ * @throws IllegalArgumentException if `b` is zero.
  */
 fun divisionRecursive(a: Long, b: Long): Long {
     require(b != 0L) { "Divisor cannot be zero." }
@@ -91,7 +91,7 @@ fun divisionRecursive(a: Long, b: Long): Long {
  * @param b The divisor.
  * @return The quotient of `a` divided by `b`.
  *
- * @throws ArithmeticException if `b` is zero.
+ * @throws IllegalArgumentException if `b` is zero.
  */
 fun divisionUsingMultiplication(a: Int, b: Int): Long {
     require(b != 0) { "Divisor cannot be zero." }
