@@ -118,4 +118,40 @@ class DivisionKtUnitTest {
         // Zero divisor
         assertThrows<IllegalArgumentException> { divisionUsingMultiplication(5, 0) }
     }
+
+
+    @Test
+    fun `Test division using shift`() {
+        // Positive numbers
+        assertEquals(1, divisionUsingShift(5, 5))
+        assertEquals(1, divisionUsingShift(6, 5))
+        assertEquals(2, divisionUsingShift(10, 5))
+        assertEquals(1, divisionUsingShift(10, 8))
+
+        // Negative dividend
+        assertEquals(-1, divisionUsingShift(-5, 5))
+        assertEquals(-1, divisionUsingShift(-6, 5))
+        assertEquals(-2, divisionUsingShift(-10, 5))
+        assertEquals(-1, divisionUsingShift(-10, 8))
+
+        // Negative divisor
+        assertEquals(-1, divisionUsingShift(5, -5))
+        assertEquals(-1, divisionUsingShift(6, -5))
+        assertEquals(-2, divisionUsingShift(10, -5))
+        assertEquals(-1, divisionUsingShift(10, -8))
+
+        // Both negative
+        assertEquals(1, divisionUsingShift(-5, -5))
+        assertEquals(1, divisionUsingShift(-6, -5))
+        assertEquals(2, divisionUsingShift(-10, -5))
+        assertEquals(1, divisionUsingShift(-10, -8))
+
+        // Zero dividend
+        assertEquals(0, divisionUsingShift(0, 5))
+        assertEquals(0, divisionUsingShift(0, -5))
+
+        // Zero divisor
+        assertThrows<IllegalArgumentException> { divisionUsingShift(5, 0) }
+
+    }
 }

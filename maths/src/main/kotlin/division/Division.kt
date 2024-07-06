@@ -112,3 +112,40 @@ fun divisionUsingMultiplication(a: Int, b: Int): Long {
         result += divisionUsingMultiplication(remaining, absB)
     return if ((a > 0 && b > 0) || (a < 0 && b < 0)) result else -result
 }
+
+/**
+ * Performs division of two integers using bitwise shift operations.
+ *
+ * This method calculates the quotient of `a` divided by `b` by using bitwise shifts to efficiently
+ * approximate the division process. It handles negative numbers by adjusting the sign of the result accordingly.
+ *
+ * @param a The dividend.
+ * @param b The divisor.
+ * @return The quotient of `a` divided by `b`.
+ *
+ * @throws IllegalArgumentException if `b` is zero.
+ */
+fun divisionUsingShift(a: Int, b: Int): Long {
+    require(b != 0) { "Divisor cannot be zero." }
+
+    val absA = kotlin.math.abs(a)
+    val absB = kotlin.math.abs(b)
+    var tempA: Int
+    var tempB: Int
+    var counter: Int
+
+    var result = 0L
+    var mutableAbsA = absA
+    while (mutableAbsA >= absB) {
+        tempA = mutableAbsA shr 1 // Right shift "a"
+        tempB = absB
+        counter = 1
+        while (tempA >= tempB) { // Double "tempB" until it's larger than "tempA"
+            tempB = tempB shl 1
+            counter = counter shl 1 // Double the counter
+        }
+        mutableAbsA -= tempB // Subtract "tempB" from "a"
+        result += counter // Add counter (2^number of left shifts)
+    }
+    return if ((a > 0 && b > 0) || (a < 0 && b < 0)) result else -result
+}
