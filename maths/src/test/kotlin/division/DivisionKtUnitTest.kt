@@ -9,6 +9,6 @@ class DivisionKtUnitTest {
         assertEquals(1, division(5, 5))
         assertEquals(1, division(6, 5))
         assertEquals(2, division(10, 5))
-        assertEquals(2, division(10, 8))
+        assertEquals(1, division(10, 8))
     }
 }
