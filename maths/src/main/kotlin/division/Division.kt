@@ -1,5 +1,10 @@
 package division
 
+import kotlin.math.abs
+import kotlin.math.floor
+import kotlin.math.log10
+import kotlin.math.pow
+
 /**
  * Performs division of two long integers.
  *
@@ -30,8 +35,8 @@ fun division(a: Long, b: Long): Long {
 fun divisionWithLoop(a: Long, b: Long): Long {
     require(b != 0L) { "Divisor cannot be zero." }
 
-    val absA = kotlin.math.abs(a)
-    val absB = kotlin.math.abs(b)
+    val absA = abs(a)
+    val absB = abs(b)
 
     var temp = absA
     var result = 0L
@@ -62,8 +67,8 @@ fun divisionWithLoop(a: Long, b: Long): Long {
 fun divisionRecursive(a: Long, b: Long): Long {
     require(b != 0L) { "Divisor cannot be zero." }
 
-    val absA = kotlin.math.abs(a)
-    val absB = kotlin.math.abs(b)
+    val absA = abs(a)
+    val absB = abs(b)
 
     fun recursiveDiv(dividend: Long, divisor: Long): Long {
         return if (dividend < divisor) {
@@ -97,8 +102,8 @@ fun divisionUsingMultiplication(a: Int, b: Int): Long {
     require(b != 0) { "Divisor cannot be zero." }
     if (a == 0) return 0
 
-    val absA = kotlin.math.abs(a)
-    val absB = kotlin.math.abs(b)
+    val absA = abs(a)
+    val absB = abs(b)
 
     var temp = absB
     var counter = 0
@@ -108,8 +113,7 @@ fun divisionUsingMultiplication(a: Int, b: Int): Long {
     }
     val remaining = absA - (absB shl (counter - 1))
     var result = 1L shl (counter - 1)
-    if (absB <= remaining)
-        result += divisionUsingMultiplication(remaining, absB)
+    if (absB <= remaining) result += divisionUsingMultiplication(remaining, absB)
     return if ((a > 0 && b > 0) || (a < 0 && b < 0)) result else -result
 }
 
@@ -128,8 +132,8 @@ fun divisionUsingMultiplication(a: Int, b: Int): Long {
 fun divisionWithShift(a: Int, b: Int): Long {
     require(b != 0) { "Divisor cannot be zero." }
 
-    val absA = kotlin.math.abs(a)
-    val absB = kotlin.math.abs(b)
+    val absA = abs(a)
+    val absB = abs(b)
     var tempA: Int
     var tempB: Int
     var counter: Int
@@ -147,5 +151,30 @@ fun divisionWithShift(a: Int, b: Int): Long {
         mutableAbsA -= tempB // Subtract "tempB" from "a"
         result += counter // Add counter (2^number of left shifts)
     }
+    return if ((a > 0 && b > 0) || (a < 0 && b < 0)) result else -result
+}
+
+/**
+ * Performs division of two integers using logarithms.
+ *
+ * This method calculates the quotient of `a` divided by `b` by utilizing logarithms and exponentiation.
+ * It handles negative numbers by adjusting the sign of the result accordingly.
+ *
+ * @param a The dividend.
+ * @param b The divisor.
+ * @return The quotient of `a` divided by `b`.
+ *
+ * @throws IllegalArgumentException if `b` is zero.
+ */
+fun divisionWithLogs(a: Int, b: Int): Long {
+    require(b != 0) { "Divisor cannot be zero." }
+
+    val absA = abs(a).toDouble()
+    val absB = abs(b).toDouble()
+    val logBase10A = log10(absA)
+    val logBase10B = log10(absB)
+    val powOf10 = 10.0.pow(logBase10A - logBase10B)
+    val result = floor(powOf10 + 0.5).toLong()
+
     return if ((a > 0 && b > 0) || (a < 0 && b < 0)) result else -result
 }

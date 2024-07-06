@@ -154,4 +154,38 @@ class DivisionKtUnitTest {
         assertThrows<IllegalArgumentException> { divisionWithShift(5, 0) }
 
     }
+
+    @Test
+    fun `Test division using logarithms`() {
+        // Positive numbers
+        assertEquals(1, divisionWithLogs(5, 5))
+        assertEquals(1, divisionWithLogs(6, 5))
+        assertEquals(2, divisionWithLogs(10, 5))
+        assertEquals(1, divisionWithLogs(10, 8))
+
+        // Negative dividend
+        assertEquals(-1, divisionWithLogs(-5, 5))
+        assertEquals(-1, divisionWithLogs(-6, 5))
+        assertEquals(-2, divisionWithLogs(-10, 5))
+        assertEquals(-1, divisionWithLogs(-10, 8))
+
+        // Negative divisor
+        assertEquals(-1, divisionWithLogs(5, -5))
+        assertEquals(-1, divisionWithLogs(6, -5))
+        assertEquals(-2, divisionWithLogs(10, -5))
+        assertEquals(-1, divisionWithLogs(10, -8))
+
+        // Both negative
+        assertEquals(1, divisionWithLogs(-5, -5))
+        assertEquals(1, divisionWithLogs(-6, -5))
+        assertEquals(2, divisionWithLogs(-10, -5))
+        assertEquals(1, divisionWithLogs(-10, -8))
+
+        // Zero dividend
+        assertEquals(0, divisionWithLogs(0, 5))
+        assertEquals(0, divisionWithLogs(0, -5))
+
+        // Zero divisor
+        assertThrows<IllegalArgumentException> { divisionWithLogs(5, 0) }
+    }
 }
