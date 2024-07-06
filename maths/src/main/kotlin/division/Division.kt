@@ -80,3 +80,35 @@ fun divisionRecursive(a: Long, b: Long): Long {
         result
     }
 }
+
+/**
+ * Performs division of two integers using multiplication and bit manipulation.
+ *
+ * This method calculates the quotient of `a` divided by `b` by using a combination of shifting and recursive subtraction.
+ * It handles negative numbers by adjusting the sign of the result accordingly.
+ *
+ * @param a The dividend.
+ * @param b The divisor.
+ * @return The quotient of `a` divided by `b`.
+ *
+ * @throws ArithmeticException if `b` is zero.
+ */
+fun divisionUsingMultiplication(a: Int, b: Int): Long {
+    require(b != 0) { "Divisor cannot be zero." }
+    if (a == 0) return 0
+
+    val absA = kotlin.math.abs(a)
+    val absB = kotlin.math.abs(b)
+
+    var temp = absB
+    var counter = 0
+    while (temp <= absA) {
+        temp = temp shl 1
+        counter++
+    }
+    val remaining = absA - (absB shl (counter - 1))
+    var result = 1L shl (counter - 1)
+    if (absB <= remaining)
+        result += divisionUsingMultiplication(remaining, absB)
+    return if ((a > 0 && b > 0) || (a < 0 && b < 0)) result else -result
+}
