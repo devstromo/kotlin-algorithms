@@ -123,35 +123,35 @@ class DivisionKtUnitTest {
     @Test
     fun `Test division using shift`() {
         // Positive numbers
-        assertEquals(1, divisionUsingShift(5, 5))
-        assertEquals(1, divisionUsingShift(6, 5))
-        assertEquals(2, divisionUsingShift(10, 5))
-        assertEquals(1, divisionUsingShift(10, 8))
+        assertEquals(1, divisionWithShift(5, 5))
+        assertEquals(1, divisionWithShift(6, 5))
+        assertEquals(2, divisionWithShift(10, 5))
+        assertEquals(1, divisionWithShift(10, 8))
 
         // Negative dividend
-        assertEquals(-1, divisionUsingShift(-5, 5))
-        assertEquals(-1, divisionUsingShift(-6, 5))
-        assertEquals(-2, divisionUsingShift(-10, 5))
-        assertEquals(-1, divisionUsingShift(-10, 8))
+        assertEquals(-1, divisionWithShift(-5, 5))
+        assertEquals(-1, divisionWithShift(-6, 5))
+        assertEquals(-2, divisionWithShift(-10, 5))
+        assertEquals(-1, divisionWithShift(-10, 8))
 
         // Negative divisor
-        assertEquals(-1, divisionUsingShift(5, -5))
-        assertEquals(-1, divisionUsingShift(6, -5))
-        assertEquals(-2, divisionUsingShift(10, -5))
-        assertEquals(-1, divisionUsingShift(10, -8))
+        assertEquals(-1, divisionWithShift(5, -5))
+        assertEquals(-1, divisionWithShift(6, -5))
+        assertEquals(-2, divisionWithShift(10, -5))
+        assertEquals(-1, divisionWithShift(10, -8))
 
         // Both negative
-        assertEquals(1, divisionUsingShift(-5, -5))
-        assertEquals(1, divisionUsingShift(-6, -5))
-        assertEquals(2, divisionUsingShift(-10, -5))
-        assertEquals(1, divisionUsingShift(-10, -8))
+        assertEquals(1, divisionWithShift(-5, -5))
+        assertEquals(1, divisionWithShift(-6, -5))
+        assertEquals(2, divisionWithShift(-10, -5))
+        assertEquals(1, divisionWithShift(-10, -8))
 
         // Zero dividend
-        assertEquals(0, divisionUsingShift(0, 5))
-        assertEquals(0, divisionUsingShift(0, -5))
+        assertEquals(0, divisionWithShift(0, 5))
+        assertEquals(0, divisionWithShift(0, -5))
 
         // Zero divisor
-        assertThrows<IllegalArgumentException> { divisionUsingShift(5, 0) }
+        assertThrows<IllegalArgumentException> { divisionWithShift(5, 0) }
 
     }
 }

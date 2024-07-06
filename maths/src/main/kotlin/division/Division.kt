@@ -125,7 +125,7 @@ fun divisionUsingMultiplication(a: Int, b: Int): Long {
  *
  * @throws IllegalArgumentException if `b` is zero.
  */
-fun divisionUsingShift(a: Int, b: Int): Long {
+fun divisionWithShift(a: Int, b: Int): Long {
     require(b != 0) { "Divisor cannot be zero." }
 
     val absA = kotlin.math.abs(a)
