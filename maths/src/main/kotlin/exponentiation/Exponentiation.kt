@@ -79,4 +79,27 @@ class Exponentiation {
         }
         return result
     }
+
+    /**
+     * Performs exponentiation of a base to a power using an iterative method of exponentiation by squaring.
+     *
+     * @param base The base value.
+     * @param exponent The exponent value.
+     * @return The result of `base` raised to the power of `exponent`.
+     */
+    fun exponentiationBySquaringIterative(base: Int, exponent: Int): Int {
+        var result = 1
+        var exp = exponent
+        var b = base
+
+        while (exp > 0) {
+            if (exp % 2 == 1) {
+                result *= b
+            }
+            b *= b
+            exp /= 2
+        }
+
+        return result
+    }
 }
