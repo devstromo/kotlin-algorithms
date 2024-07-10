@@ -91,7 +91,37 @@ class ExponentiationUnitTest {
         assertEquals(0, solution.fastRecursiveModulo(0, 1, 1000))
         assertEquals(0, solution.fastRecursiveModulo(0, 5, 1000))
         assertEquals(0, solution.fastRecursiveModulo(0, 100, 1000))
+    }
 
-        // Both zero as base and exponent
+    @Test
+    fun `Test iterative exponentiation`() {
+        // Positive exponent
+        assertEquals(1, solution.iterative(2, 0))
+        assertEquals(2, solution.iterative(2, 1))
+        assertEquals(4, solution.iterative(2, 2))
+        assertEquals(8, solution.iterative(2, 3))
+        assertEquals(16, solution.iterative(2, 4))
+
+        // Negative base
+        assertEquals(1, solution.iterative(-2, 0))
+        assertEquals(-2, solution.iterative(-2, 1))
+        assertEquals(4, solution.iterative(-2, 2))
+        assertEquals(-8, solution.iterative(-2, 3))
+        assertEquals(16, solution.iterative(-2, 4))
+
+        // Larger numbers
+        assertEquals(1024, solution.iterative(2, 10))
+        assertEquals(59049, solution.iterative(3, 10))
+        assertEquals(1000000000, solution.iterative(10, 9))
+
+        // One as base
+        assertEquals(1, solution.iterative(1, 100))
+        assertEquals(1, solution.iterative(1, 0))
+        assertEquals(1, solution.iterative(1, 1))
+
+        // Zero as base
+        assertEquals(0, solution.iterative(0, 1))
+        assertEquals(0, solution.iterative(0, 5))
+        assertEquals(0, solution.iterative(0, 100))
     }
 }

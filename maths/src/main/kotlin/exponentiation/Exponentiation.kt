@@ -64,4 +64,19 @@ class Exponentiation {
             }
         }
     }
+
+    /**
+     * Performs exponentiation of a base to a power using an iterative approach.
+     *
+     * @param base The base value.
+     * @param exponent The exponent value.
+     * @return The result of `base` raised to the power of `exponent`.
+     */
+    fun iterative(base: Int, exponent: Int): Int {
+        var result = 1
+        for (i in 1..exponent) {
+            result *= base
+        }
+        return result
+    }
 }
