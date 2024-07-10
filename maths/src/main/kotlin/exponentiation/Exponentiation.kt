@@ -102,4 +102,28 @@ class Exponentiation {
 
         return result
     }
+
+    /**
+     * Performs modular exponentiation of a base to a power using an iterative method of exponentiation by squaring.
+     *
+     * @param base The base value.
+     * @param exponent The exponent value.
+     * @param mod The modulo value.
+     * @return The result of `base` raised to the power of `exponent` modulo `mod`.
+     */
+    fun exponentiationBySquaringModIterative(base: Int, exponent: Int, mod: Int): Int {
+        var result = 1
+        var exp = exponent
+        var b = base % mod
+
+        while (exp > 0) {
+            if (exp % 2 == 1) {
+                result = (result * b) % mod
+            }
+            b = (b * b) % mod
+            exp /= 2
+        }
+
+        return result
+    }
 }

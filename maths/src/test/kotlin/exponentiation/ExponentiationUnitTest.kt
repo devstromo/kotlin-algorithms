@@ -156,4 +156,36 @@ class ExponentiationUnitTest {
         assertEquals(0, solution.exponentiationBySquaringIterative(0, 5))
         assertEquals(0, solution.exponentiationBySquaringIterative(0, 100))
     }
+
+    @Test
+    fun `Test exponentiation by squaring with modulo iterative`() {
+        // Positive exponent
+        assertEquals(1, solution.exponentiationBySquaringModIterative(2, 0, 1000))
+        assertEquals(2, solution.exponentiationBySquaringModIterative(2, 1, 1000))
+        assertEquals(4, solution.exponentiationBySquaringModIterative(2, 2, 1000))
+        assertEquals(8, solution.exponentiationBySquaringModIterative(2, 3, 1000))
+        assertEquals(16, solution.exponentiationBySquaringModIterative(2, 4, 1000))
+
+        // Negative base
+        assertEquals(1, solution.exponentiationBySquaringModIterative(-2, 0, 1000))
+        assertEquals(-2 % 1000, solution.exponentiationBySquaringModIterative(-2, 1, 1000))
+        assertEquals(4, solution.exponentiationBySquaringModIterative(-2, 2, 1000))
+        assertEquals(-8 % 1000, solution.exponentiationBySquaringModIterative(-2, 3, 1000))
+        assertEquals(16, solution.exponentiationBySquaringModIterative(-2, 4, 1000))
+
+        // Larger numbers
+        assertEquals(24, solution.exponentiationBySquaringModIterative(2, 10, 1000))
+        assertEquals(49, solution.exponentiationBySquaringModIterative(3, 10, 1000))
+        assertEquals(0, solution.exponentiationBySquaringModIterative(10, 9, 10))
+
+        // One as base
+        assertEquals(1, solution.exponentiationBySquaringModIterative(1, 100, 1000))
+        assertEquals(1, solution.exponentiationBySquaringModIterative(1, 0, 1000))
+        assertEquals(1, solution.exponentiationBySquaringModIterative(1, 1, 1000))
+
+        // Zero as base
+        assertEquals(0, solution.exponentiationBySquaringModIterative(0, 1, 1000))
+        assertEquals(0, solution.exponentiationBySquaringModIterative(0, 5, 1000))
+        assertEquals(0, solution.exponentiationBySquaringModIterative(0, 100, 1000))
+    }
 }
