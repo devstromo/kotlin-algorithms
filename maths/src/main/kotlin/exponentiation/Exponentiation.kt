@@ -40,4 +40,28 @@ class Exponentiation {
             }
         }
     }
+
+    /**
+     * Performs exponentiation of a base to a power using an optimized recursive approach with modulo operation.
+     *
+     * This method calculates `base` raised to the power of `exponent` modulo `mod` recursively using the fast exponentiation method.
+     *
+     * @param base The base value.
+     * @param exponent The exponent value.
+     * @param mod The modulo value.
+     * @return The result of `base` raised to the power of `exponent` modulo `mod`.
+     */
+    fun fastRecursiveModulo(base: Int, exponent: Int, mod: Int): Int {
+        return when (exponent) {
+            0 -> 1
+            1 -> base % mod
+            else -> {
+                val resultOnHalfExponent = fastRecursiveModulo(base, exponent / 2, mod)
+                if ((exponent % 2) == 0)
+                    (resultOnHalfExponent * resultOnHalfExponent) % mod
+                else
+                    ((resultOnHalfExponent * resultOnHalfExponent) % mod * base) % mod
+            }
+        }
+    }
 }

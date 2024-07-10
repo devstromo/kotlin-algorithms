@@ -60,4 +60,38 @@ class ExponentiationUnitTest {
         assertEquals(0, solution.fastRecursive(0, 5))
         assertEquals(0, solution.fastRecursive(0, 100))
     }
+
+    @Test
+    fun `Test fast exponentiation with modulo`() {
+        // Positive exponent
+        assertEquals(1, solution.fastRecursiveModulo(2, 0, 1000))
+        assertEquals(2, solution.fastRecursiveModulo(2, 1, 1000))
+        assertEquals(4, solution.fastRecursiveModulo(2, 2, 1000))
+        assertEquals(8, solution.fastRecursiveModulo(2, 3, 1000))
+        assertEquals(16, solution.fastRecursiveModulo(2, 4, 1000))
+
+        // Negative base
+        assertEquals(1, solution.fastRecursiveModulo(-2, 0, 1000))
+        assertEquals(-2 % 1000, solution.fastRecursiveModulo(-2, 1, 1000))
+        assertEquals(4, solution.fastRecursiveModulo(-2, 2, 1000))
+        assertEquals(-8 % 1000, solution.fastRecursiveModulo(-2, 3, 1000))
+        assertEquals(16, solution.fastRecursiveModulo(-2, 4, 1000))
+
+        // Larger numbers
+        assertEquals(24, solution.fastRecursiveModulo(2, 10, 1000))
+        assertEquals(49, solution.fastRecursiveModulo(3, 10, 1000))
+        assertEquals(0, solution.fastRecursiveModulo(10, 9, 10))
+
+        // One as base
+        assertEquals(1, solution.fastRecursiveModulo(1, 100, 1000))
+        assertEquals(1, solution.fastRecursiveModulo(1, 0, 1000))
+        assertEquals(1, solution.fastRecursiveModulo(1, 1, 1000))
+
+        // Zero as base
+        assertEquals(0, solution.fastRecursiveModulo(0, 1, 1000))
+        assertEquals(0, solution.fastRecursiveModulo(0, 5, 1000))
+        assertEquals(0, solution.fastRecursiveModulo(0, 100, 1000))
+
+        // Both zero as base and exponent
+    }
 }
