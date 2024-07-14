@@ -118,5 +118,66 @@ internal class PermutationsKtUnitTest {
         )
         assertTrue(result.containsAll(expected) && expected.containsAll(result))
     }
+
+
+    @Test
+    fun `Test iterative permutations with three elements`() {
+        val array = arrayOf(1, 2, 3)
+        val result = iterativePermutations(array)
+        val expected = listOf(
+            listOf(1, 2, 3),
+            listOf(2, 1, 3),
+            listOf(3, 1, 2),
+            listOf(1, 3, 2),
+            listOf(2, 3, 1),
+            listOf(3, 2, 1)
+        )
+        assertTrue(result.containsAll(expected) && expected.containsAll(result))
+    }
+
+    @Test
+    fun `Test iterative permutations with two elements`() {
+        val array = arrayOf(1, 2)
+        val result = iterativePermutations(array)
+        val expected = listOf(
+            listOf(1, 2),
+            listOf(2, 1)
+        )
+        assertTrue(result.containsAll(expected) && expected.containsAll(result))
+    }
+
+    @Test
+    fun `Test iterative permutations with one element`() {
+        val array = arrayOf(1)
+        val result = iterativePermutations(array)
+        val expected = listOf(
+            listOf(1)
+        )
+        assertTrue(result.containsAll(expected) && expected.containsAll(result))
+    }
+
+    @Test
+    fun `Test iterative permutations with no elements`() {
+        val array = arrayOf<Int>()
+        val result = iterativePermutations(array)
+        val expected = listOf<List<Int>>()
+        assertTrue(result.containsAll(expected) && expected.containsAll(result))
+    }
+
+    @Test
+    fun `Test iterative permutations with strings`() {
+        val array = arrayOf("a", "b", "c")
+        val result = iterativePermutations(array)
+        val expected = listOf(
+            listOf("a", "b", "c"),
+            listOf("b", "a", "c"),
+            listOf("c", "a", "b"),
+            listOf("a", "c", "b"),
+            listOf("b", "c", "a"),
+            listOf("c", "b", "a")
+        )
+        assertTrue(result.containsAll(expected) && expected.containsAll(result))
+    }
+
 }
 

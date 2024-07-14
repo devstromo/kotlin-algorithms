@@ -28,6 +28,40 @@ fun <T> heapPermutations(array: Array<T>): List<List<T>> {
     return result
 }
 
+/**
+ * Generates all permutations of the given array using an iterative approach.
+ *
+ * @param array The array to generate permutations from.
+ * @return A list of all permutations.
+ */
+fun <T> iterativePermutations(array: Array<T>): List<List<T>> {
+    val result = mutableListOf<List<T>>()
+    val n = array.size
+    if (array.isEmpty())
+        return result
+    val c = IntArray(n) { 0 } // control array initially all zeros
+    result.add(array.toList())
+
+    var i = 0
+    while (i < n) {
+        if (c[i] < i) {
+            if (i % 2 == 0) {
+                array.swap(0, i)
+            } else {
+                array.swap(c[i], i)
+            }
+            result.add(array.toList())
+            c[i] += 1
+            i = 0
+        } else {
+            c[i] = 0
+            i += 1
+        }
+    }
+
+    return result
+}
+
 private fun <T> heapPermutations(array: Array<T>, size: Int, result: MutableList<List<T>>) {
     if (size == 1) {
         result.add(array.toList())
