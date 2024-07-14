@@ -58,5 +58,65 @@ internal class PermutationsKtUnitTest {
         val expected4 = listOf<List<Int>>()
         assertTrue(result4.containsAll(expected4))
     }
+
+
+    @Test
+    fun `Test heap permutations with three elements`() {
+        val array = arrayOf(1, 2, 3)
+        val result = heapPermutations(array)
+        val expected = listOf(
+            listOf(1, 2, 3),
+            listOf(2, 1, 3),
+            listOf(3, 1, 2),
+            listOf(1, 3, 2),
+            listOf(2, 3, 1),
+            listOf(3, 2, 1)
+        )
+        assertTrue(result.containsAll(expected) && expected.containsAll(result))
+    }
+
+    @Test
+    fun `Test heap permutations with two elements`() {
+        val array = arrayOf(1, 2)
+        val result = heapPermutations(array)
+        val expected = listOf(
+            listOf(1, 2),
+            listOf(2, 1)
+        )
+        assertTrue(result.containsAll(expected) && expected.containsAll(result))
+    }
+
+    @Test
+    fun `Test heap permutations with one element`() {
+        val array = arrayOf(1)
+        val result = heapPermutations(array)
+        val expected = listOf(
+            listOf(1)
+        )
+        assertTrue(result.containsAll(expected) && expected.containsAll(result))
+    }
+
+    @Test
+    fun `Test heap permutations with no elements`() {
+        val array = arrayOf<Int>()
+        val result = heapPermutations(array)
+        val expected = listOf<List<Int>>()
+        assertTrue(result.containsAll(expected) && expected.containsAll(result))
+    }
+
+    @Test
+    fun `Test heap permutations with strings`() {
+        val array = arrayOf("a", "b", "c")
+        val result = heapPermutations(array)
+        val expected = listOf(
+            listOf("a", "b", "c"),
+            listOf("b", "a", "c"),
+            listOf("c", "a", "b"),
+            listOf("a", "c", "b"),
+            listOf("b", "c", "a"),
+            listOf("c", "b", "a")
+        )
+        assertTrue(result.containsAll(expected) && expected.containsAll(result))
+    }
 }
 

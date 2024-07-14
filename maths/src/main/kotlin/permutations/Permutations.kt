@@ -3,7 +3,7 @@ package permutations
 fun permutations(stringToGeneratePermutationsFrom: String): Array<String> {
     val size = numberOfPermutations(stringToGeneratePermutationsFrom.length)
     val list = Array(size) { "" }
-    if(size == 0)
+    if (size == 0)
         return list
     val prefix = charArrayOf()
     val chars = stringToGeneratePermutationsFrom.toCharArray()
@@ -15,6 +15,37 @@ fun <N : Number> getAllPermutations(numbers: Array<N>): List<List<N>> {
     val result = mutableListOf<List<N>>()
     return getAllPermutations(numbers, result)
 }
+
+/**
+ * Generates all permutations of the given array using Heap's Algorithm.
+ *
+ * @param array The array to generate permutations from.
+ * @return A list of all permutations.
+ */
+fun <T> heapPermutations(array: Array<T>): List<List<T>> {
+    val result = mutableListOf<List<T>>()
+    heapPermutations(array, array.size, result)
+    return result
+}
+
+private fun <T> heapPermutations(array: Array<T>, size: Int, result: MutableList<List<T>>) {
+    if (size == 1) {
+        result.add(array.toList())
+        return
+    }
+
+    for (i in 0 until size) {
+        heapPermutations(array, size - 1, result)
+
+        // Swap elements depending on the parity of the size
+        if (size % 2 == 1) {
+            array.swap(0, size - 1)
+        } else {
+            array.swap(i, size - 1)
+        }
+    }
+}
+
 
 private fun numberOfPermutations(N: Int): Int {
     // factorial
