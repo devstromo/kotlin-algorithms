@@ -75,5 +75,8 @@ Join us in building an extensive Kotlin-based algorithms and data structures lib
 - Robert Sedgewick and Kevin Wayne. *Algorithms, 4th Edition*. Available online at [Algorithms, 4th Edition](https://algs4.cs.princeton.edu/home/).
 - Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein. *Introduction to Algorithms, 3rd Edition (MIT Press)*. Available online at [Amazon](https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press/dp/0262033844).
 
+## Other repositories
+- [Java Algorithms Implementation](https://github.com/phishman3579/java-algorithms-implementation)
+
 
 
