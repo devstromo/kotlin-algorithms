@@ -179,5 +179,68 @@ internal class PermutationsKtUnitTest {
         assertTrue(result.containsAll(expected) && expected.containsAll(result))
     }
 
+    @Test
+    fun `Test next permutation with sorted array`() {
+        val array = arrayOf(1, 2, 3)
+        val hasNext = nextPermutation(array)
+        val expected = arrayOf(1, 3, 2)
+        assertTrue(hasNext)
+        assertArrayEquals(expected, array)
+    }
+
+    @Test
+    fun `Test next permutation with last permutation`() {
+        val array = arrayOf(3, 2, 1)
+        val hasNext = nextPermutation(array)
+        val expected = arrayOf(1, 2, 3)
+        assertFalse(hasNext)
+        assertArrayEquals(expected, array)
+    }
+
+    @Test
+    fun `Test next permutation with middle permutation`() {
+        val array = arrayOf(1, 3, 2)
+        val hasNext = nextPermutation(array)
+        val expected = arrayOf(2, 1, 3)
+        assertTrue(hasNext)
+        assertArrayEquals(expected, array)
+    }
+
+    @Test
+    fun `Test next permutation with duplicate elements`() {
+        val array = arrayOf(1, 5, 5)
+        val hasNext = nextPermutation(array)
+        val expected = arrayOf(5, 1, 5)
+        assertTrue(hasNext)
+        assertArrayEquals(expected, array)
+    }
+
+    @Test
+    fun `Test next permutation with single element`() {
+        val array = arrayOf(1)
+        val hasNext = nextPermutation(array)
+        val expected = arrayOf(1)
+        assertFalse(hasNext)
+        assertArrayEquals(expected, array)
+    }
+
+    @Test
+    fun `Test next permutation with empty array`() {
+        val array = arrayOf<Int>()
+        val hasNext = nextPermutation(array)
+        val expected = arrayOf<Int>()
+        assertFalse(hasNext)
+        assertArrayEquals(expected, array)
+    }
+
+    @Test
+    fun `Test next permutation with strings`() {
+        val array = arrayOf("a", "b", "c")
+        val hasNext = nextPermutation(array)
+        val expected = arrayOf("a", "c", "b")
+        assertTrue(hasNext)
+        assertArrayEquals(expected, array)
+    }
+
 }
 

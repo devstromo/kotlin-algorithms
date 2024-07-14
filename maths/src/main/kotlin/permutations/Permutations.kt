@@ -62,6 +62,42 @@ fun <T> iterativePermutations(array: Array<T>): List<List<T>> {
     return result
 }
 
+/**
+ * Generates the next lexicographic permutation of the array.
+ *
+ * @param array The array to generate the next permutation from.
+ * @return `true` if there is a next permutation, `false` if the array is in the highest permutation order.
+ */
+fun <T : Comparable<T>> nextPermutation(array: Array<T>): Boolean {
+    val n = array.size
+    if (n < 2) return false
+
+    var i = n - 2
+    while (i >= 0 && array[i] >= array[i + 1]) i--
+
+    if (i < 0) {
+        array.reverse(0, n - 1)
+        return false
+    }
+
+    var j = n - 1
+    while (array[j] <= array[i]) j--
+
+    array.swap(i, j)
+    array.reverse(i + 1, n - 1)
+    return true
+}
+
+private fun <T> Array<T>.reverse(start: Int, end: Int) {
+    var i = start
+    var j = end
+    while (i < j) {
+        swap(i, j)
+        i++
+        j--
+    }
+}
+
 private fun <T> heapPermutations(array: Array<T>, size: Int, result: MutableList<List<T>>) {
     if (size == 1) {
         result.add(array.toList())
