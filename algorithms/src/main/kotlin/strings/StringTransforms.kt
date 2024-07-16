@@ -21,7 +21,7 @@ fun reverseUsingStringBuilderReverse(string: String): String {
     return stringBuilder.reverse().toString()
 }
 
-fun reverseWithSwaps(string: String): String {
+fun reverseUsingSwaps(string: String): String {
     val array = string.toCharArray()
     val length = array.size - 1
     val half = array.size / 2
