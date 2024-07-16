@@ -33,3 +33,16 @@ fun reverseWithSwaps(string: String): String {
     }
     return String(array)
 }
+
+fun reverseUsingXOR(string: String): String {
+    val array = string.toCharArray()
+    val length = array.size
+    val half = length / 2
+
+    for (i in 0 until half) {
+        array[i] = (array[i].code xor array[length - i - 1].code).toChar()
+        array[length - i - 1] = (array[length - i - 1].code xor array[i].code).toChar()
+        array[i] = (array[i].code xor array[length - i - 1].code).toChar()
+    }
+    return String(array)
+}

@@ -195,4 +195,52 @@ class StringTransformsKtUnitTest {
         val result = reverseWithSwaps(input)
         assertEquals(expected, result)
     }
+
+    @Test
+    fun `Test reverse with regular string using XOR`() {
+        val input = "hello"
+        val expected = "olleh"
+        val result = reverseUsingXOR(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse with single character using XOR`() {
+        val input = "a"
+        val expected = "a"
+        val result = reverseUsingXOR(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse with empty string using XOR`() {
+        val input = ""
+        val expected = ""
+        val result = reverseUsingXOR(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse with palindrome using XOR`() {
+        val input = "madam"
+        val expected = "madam"
+        val result = reverseUsingXOR(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse with special characters using XOR`() {
+        val input = "a!b@c#d\$"
+        val expected = "\$d#c@b!a"
+        val result = reverseUsingXOR(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse with numbers using XOR`() {
+        val input = "12345"
+        val expected = "54321"
+        val result = reverseUsingXOR(input)
+        assertEquals(expected, result)
+    }
 }
