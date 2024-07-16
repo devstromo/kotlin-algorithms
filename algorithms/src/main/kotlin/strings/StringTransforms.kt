@@ -20,3 +20,16 @@ fun reverseUsingStringBuilderReverse(string: String): String {
     val stringBuilder = StringBuilder(string)
     return stringBuilder.reverse().toString()
 }
+
+fun reverseWithSwaps(string: String): String {
+    val array = string.toCharArray()
+    val length = array.size - 1
+    val half = array.size / 2
+
+    for (i in 0 until half) {
+        val c = array[length - i]
+        array[length - i] = array[i]
+        array[i] = c
+    }
+    return String(array)
+}

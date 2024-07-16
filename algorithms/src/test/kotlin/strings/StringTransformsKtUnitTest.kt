@@ -147,4 +147,52 @@ class StringTransformsKtUnitTest {
         val result = reverseUsingStringBuilderReverse(input)
         assertEquals(expected, result)
     }
+
+    @Test
+    fun `Test reverse with regular string using swap`() {
+        val input = "hello"
+        val expected = "olleh"
+        val result = reverseWithSwaps(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse with single character using swap`() {
+        val input = "a"
+        val expected = "a"
+        val result = reverseWithSwaps(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse with empty string using swap`() {
+        val input = ""
+        val expected = ""
+        val result = reverseWithSwaps(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse with palindrome using swap`() {
+        val input = "madam"
+        val expected = "madam"
+        val result = reverseWithSwaps(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse with special characters using swap`() {
+        val input = "a!b@c#d\$"
+        val expected = "\$d#c@b!a"
+        val result = reverseWithSwaps(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse with numbers using swap`() {
+        val input = "12345"
+        val expected = "54321"
+        val result = reverseWithSwaps(input)
+        assertEquals(expected, result)
+    }
 }
