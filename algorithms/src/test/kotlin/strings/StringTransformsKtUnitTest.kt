@@ -99,4 +99,52 @@ class StringTransformsKtUnitTest {
         val result = reverseUsingStringBuilder(input)
         assertEquals(expected, result)
     }
+
+    @Test
+    fun `Test reverse with regular string StringBuilder Reverse`() {
+        val input = "hello"
+        val expected = "olleh"
+        val result = reverseUsingStringBuilderReverse(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse with single character StringBuilder Reverse`() {
+        val input = "a"
+        val expected = "a"
+        val result = reverseUsingStringBuilderReverse(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse with empty string StringBuilder Reverse`() {
+        val input = ""
+        val expected = ""
+        val result = reverseUsingStringBuilderReverse(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse with palindrome StringBuilder Reverse`() {
+        val input = "madam"
+        val expected = "madam"
+        val result = reverseUsingStringBuilderReverse(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse with special characters StringBuilder Reverse`() {
+        val input = "a!b@c#d\$"
+        val expected = "\$d#c@b!a"
+        val result = reverseUsingStringBuilderReverse(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse with numbers StringBuilder Reverse`() {
+        val input = "12345"
+        val expected = "54321"
+        val result = reverseUsingStringBuilderReverse(input)
+        assertEquals(expected, result)
+    }
 }

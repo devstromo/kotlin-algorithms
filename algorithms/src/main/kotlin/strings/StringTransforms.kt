@@ -15,3 +15,8 @@ fun reverseUsingStringBuilder(string: String): String {
     }
     return builder.toString()
 }
+
+fun reverseUsingStringBuilderReverse(string: String): String {
+    val stringBuilder = StringBuilder(string)
+    return stringBuilder.reverse().toString()
+}
