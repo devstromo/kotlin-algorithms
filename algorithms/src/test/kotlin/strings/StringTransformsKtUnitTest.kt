@@ -243,4 +243,52 @@ class StringTransformsKtUnitTest {
         val result = reverseUsingXOR(input)
         assertEquals(expected, result)
     }
+
+    @Test
+    fun `Test reverse words by char with regular sentence`() {
+        val input = "hello world"
+        val expected = "world hello"
+        val result = reverseWordsByCharUsingAdditionalStorage(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words by char with single word`() {
+        val input = "hello"
+        val expected = "hello"
+        val result = reverseWordsByCharUsingAdditionalStorage(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words by char with multiple spaces`() {
+        val input = "hello   world"
+        val expected = "world   hello"
+        val result = reverseWordsByCharUsingAdditionalStorage(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words by char with empty string`() {
+        val input = ""
+        val expected = ""
+        val result = reverseWordsByCharUsingAdditionalStorage(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words by char with special characters`() {
+        val input = "hello@world"
+        val expected = "hello@world"
+        val result = reverseWordsByCharUsingAdditionalStorage(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words by char with leading and trailing spaces`() {
+        val input = "  hello world  "
+        val expected = "  world hello  "
+        val result = reverseWordsByCharUsingAdditionalStorage(input)
+        assertEquals(expected, result)
+    }
 }

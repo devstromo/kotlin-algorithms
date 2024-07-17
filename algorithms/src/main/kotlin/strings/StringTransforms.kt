@@ -46,3 +46,26 @@ fun reverseUsingXOR(string: String): String {
     }
     return String(array)
 }
+
+fun reverseWordsByCharUsingAdditionalStorage(string: String): String {
+    val builder = StringBuilder()
+    val length = string.length - 1
+    val temp = StringBuilder()
+
+    var index: Int
+    var last = string.length
+
+    for (i in length downTo 0) {
+        val c = string[i]
+        if (c == ' ' || i == 0) {
+            index = if (i == 0) 0 else i + 1
+            temp.append(string.substring(index, last))
+            if (index != 0) temp.append(c)
+            builder.append(temp)
+            temp.delete(0, temp.length)
+            last = i
+        }
+    }
+
+    return builder.toString()
+}
