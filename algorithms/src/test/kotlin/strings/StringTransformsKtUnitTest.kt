@@ -435,4 +435,53 @@ internal class StringTransformsKtUnitTest {
         val result = reverseWordsInPlace(input)
         assertEquals(expected, result)
     }
+
+    @Test
+    fun `Test palindrome with regular palindrome`() {
+        val input = "madam"
+        val result = isPalindromeWithAdditionalStorage(input)
+        assertTrue(result)
+    }
+
+    @Test
+    fun `Test palindrome with single character`() {
+        val input = "a"
+        val result = isPalindromeWithAdditionalStorage(input)
+        assertTrue(result)
+    }
+
+    @Test
+    fun `Test palindrome with empty string`() {
+        val input = ""
+        val result = isPalindromeWithAdditionalStorage(input)
+        assertTrue(result)
+    }
+
+    @Test
+    fun `Test palindrome with non-palindrome string`() {
+        val input = "hello"
+        val result = isPalindromeWithAdditionalStorage(input)
+        assertFalse(result)
+    }
+
+    @Test
+    fun `Test palindrome with special characters`() {
+        val input = "A man, a plan, a canal, Panama".replace("[^A-Za-z]".toRegex(), "").toLowerCase()
+        val result = isPalindromeWithAdditionalStorage(input)
+        assertTrue(result)
+    }
+
+    @Test
+    fun `Test palindrome with numbers`() {
+        val input = "12321"
+        val result = isPalindromeWithAdditionalStorage(input)
+        assertTrue(result)
+    }
+
+    @Test
+    fun `Test palindrome with mixed case`() {
+        val input = "MadAm"
+        val result = isPalindromeWithAdditionalStorage(input)
+        assertFalse(result)
+    }
 }

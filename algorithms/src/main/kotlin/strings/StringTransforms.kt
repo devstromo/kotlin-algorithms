@@ -121,6 +121,11 @@ fun reverseWordsInPlace(string: String): String {
     return String(chars)
 }
 
+fun isPalindromeWithAdditionalStorage(string: String): Boolean {
+    val reversed = string.reversed()
+    return string == reversed
+}
+
 private fun swapWords(start1: Int, end1: Int, start2: Int, end2: Int, chars: CharArray) {
     val length = end1 - start1 + 1
     for (k in 0 until length) {
