@@ -78,3 +78,13 @@ fun reverseWordsUsingStringTokenizerWithAdditionalStorage(string: String): Strin
     }
     return output.trim()
 }
+
+fun reverseWordsUsingSplitWithAdditionalStorage(string: String): String {
+    val builder = StringBuilder()
+    val temp = string.trim().split("\\s+".toRegex())
+
+    for (i in temp.size - 1 downTo 0) {
+        builder.append(temp[i]).append(' ')
+    }
+    return builder.toString().trim()
+}

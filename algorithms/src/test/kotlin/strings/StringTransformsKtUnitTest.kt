@@ -339,4 +339,52 @@ internal class StringTransformsKtUnitTest {
         val result = reverseWordsUsingStringTokenizerWithAdditionalStorage(input)
         assertEquals(expected, result)
     }
+
+    @Test
+    fun `Test reverse words using split with regular sentence`() {
+        val input = "hello world"
+        val expected = "world hello"
+        val result = reverseWordsUsingSplitWithAdditionalStorage(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words using split with single word`() {
+        val input = "hello"
+        val expected = "hello"
+        val result = reverseWordsUsingSplitWithAdditionalStorage(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words using split with multiple spaces`() {
+        val input = "hello   world"
+        val expected = "world hello"
+        val result = reverseWordsUsingSplitWithAdditionalStorage(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words using split with empty string`() {
+        val input = ""
+        val expected = ""
+        val result = reverseWordsUsingSplitWithAdditionalStorage(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words using split with special characters`() {
+        val input = "hello@world"
+        val expected = "hello@world"
+        val result = reverseWordsUsingSplitWithAdditionalStorage(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words using split with leading and trailing spaces`() {
+        val input = "  hello world  "
+        val expected = "world hello"
+        val result = reverseWordsUsingSplitWithAdditionalStorage(input)
+        assertEquals(expected, result)
+    }
 }
