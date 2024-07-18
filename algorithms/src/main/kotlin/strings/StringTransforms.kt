@@ -88,3 +88,44 @@ fun reverseWordsUsingSplitWithAdditionalStorage(string: String): String {
     }
     return builder.toString().trim()
 }
+
+fun reverseWordsInPlace(string: String): String {
+    val chars = string.toCharArray()
+
+    var lengthI: Int
+    var lastI = 0
+    var lengthJ = 0
+    var lastJ = chars.size - 1
+
+    var i = 0
+    while (i < chars.size && i <= lastJ) {
+        val iChar = chars[i]
+        if (iChar == ' ') {
+            lengthI = i - lastI
+            for (j in lastJ downTo i) {
+                val jChar = chars[j]
+                if (jChar == ' ') {
+                    lengthJ = lastJ - j
+                    swapWords(lastI, i - 1, j + 1, lastJ, chars)
+                    lastJ -= lengthI + 1
+                    break
+                }
+            }
+            lastI += lengthJ + 1
+            i = lastI
+        } else {
+            i++
+        }
+    }
+
+    return String(chars)
+}
+
+private fun swapWords(start1: Int, end1: Int, start2: Int, end2: Int, chars: CharArray) {
+    val length = end1 - start1 + 1
+    for (k in 0 until length) {
+        val temp = chars[start1 + k]
+        chars[start1 + k] = chars[start2 + k]
+        chars[start2 + k] = temp
+    }
+}

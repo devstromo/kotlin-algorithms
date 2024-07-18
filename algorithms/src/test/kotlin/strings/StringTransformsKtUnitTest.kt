@@ -387,4 +387,52 @@ internal class StringTransformsKtUnitTest {
         val result = reverseWordsUsingSplitWithAdditionalStorage(input)
         assertEquals(expected, result)
     }
+
+    @Test
+    fun `Test reverse words in place with regular sentence`() {
+        val input = "hello world"
+        val expected = "world hello"
+        val result = reverseWordsInPlace(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words in place with single word`() {
+        val input = "hello"
+        val expected = "hello"
+        val result = reverseWordsInPlace(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words in place with multiple spaces`() {
+        val input = "hello   world"
+        val expected = "world   hello"
+        val result = reverseWordsInPlace(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words in place with empty string`() {
+        val input = ""
+        val expected = ""
+        val result = reverseWordsInPlace(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words in place with special characters`() {
+        val input = "hello@world"
+        val expected = "hello@world"
+        val result = reverseWordsInPlace(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words in place with leading and trailing spaces`() {
+        val input = "  hello world  "
+        val expected = "  world hello  "
+        val result = reverseWordsInPlace(input)
+        assertEquals(expected, result)
+    }
 }
