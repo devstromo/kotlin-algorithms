@@ -3,7 +3,7 @@ package strings
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
-class StringTransformsKtUnitTest {
+internal class StringTransformsKtUnitTest {
     @Test
     fun `Test reverse with regular string`() {
         val input = "hello"
@@ -289,6 +289,54 @@ class StringTransformsKtUnitTest {
         val input = "  hello world  "
         val expected = "  world hello  "
         val result = reverseWordsByCharUsingAdditionalStorage(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words with regular sentence`() {
+        val input = "hello world"
+        val expected = "world hello"
+        val result = reverseWordsUsingStringTokenizerWithAdditionalStorage(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words with single word`() {
+        val input = "hello"
+        val expected = "hello"
+        val result = reverseWordsUsingStringTokenizerWithAdditionalStorage(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words with multiple spaces`() {
+        val input = "hello   world"
+        val expected = "world hello"
+        val result = reverseWordsUsingStringTokenizerWithAdditionalStorage(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words with empty string`() {
+        val input = ""
+        val expected = ""
+        val result = reverseWordsUsingStringTokenizerWithAdditionalStorage(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words with special characters`() {
+        val input = "hello@world"
+        val expected = "hello@world"
+        val result = reverseWordsUsingStringTokenizerWithAdditionalStorage(input)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test reverse words with leading and trailing spaces`() {
+        val input = "  hello world  "
+        val expected = "world hello"
+        val result = reverseWordsUsingStringTokenizerWithAdditionalStorage(input)
         assertEquals(expected, result)
     }
 }

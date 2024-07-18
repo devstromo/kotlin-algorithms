@@ -69,3 +69,12 @@ fun reverseWordsByCharUsingAdditionalStorage(string: String): String {
 
     return builder.toString()
 }
+
+fun reverseWordsUsingStringTokenizerWithAdditionalStorage(string: String): String {
+    val tokens = string.split("\\s+".toRegex())
+    var output = ""
+    for (token in tokens) {
+        output = "$token $output"
+    }
+    return output.trim()
+}
