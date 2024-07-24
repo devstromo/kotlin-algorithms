@@ -110,4 +110,58 @@ internal class GreatestCommonDivisorKtUnitTest {
         val result = gcdEuclides(x, y)
         assertEquals(expected, result)
     }
+
+    @Test
+    fun `Test GCD using Binary GCD algorithm with positive numbers`() {
+        val x = 48L
+        val y = 18L
+        val expected = 6L
+        val result = gcdUsingBinaryAlgorithm(x, y)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test GCD using Binary GCD algorithm with one number being zero`() {
+        val x = 0L
+        val y = 18L
+        val expected = 18L
+        val result = gcdUsingBinaryAlgorithm(x, y)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test GCD using Binary GCD algorithm with negative numbers`() {
+        val x = -48L
+        val y = 18L
+        val expected = 6L
+        val result = gcdUsingBinaryAlgorithm(x, y)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test GCD using Binary GCD algorithm with both numbers being zero`() {
+        val x = 0L
+        val y = 0L
+        val expected = 0L
+        val result = gcdUsingBinaryAlgorithm(x, y)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test GCD using Binary GCD algorithm with large numbers`() {
+        val x = 1234567890L
+        val y = 9876543210L
+        val expected = 90L
+        val result = gcdUsingBinaryAlgorithm(x, y)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `Test GCD using Binary GCD algorithm with one negative and one positive number`() {
+        val x = -48L
+        val y = -18L
+        val expected = 6L
+        val result = gcdUsingBinaryAlgorithm(x, y)
+        assertEquals(expected, result)
+    }
 }
