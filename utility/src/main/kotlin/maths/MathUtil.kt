@@ -12,14 +12,14 @@ import kotlin.math.abs
  */
 fun power(
     base: Long,
-    exp: Int,
-    mod: Int
+    exp: Long,
+    mod: Long
 ): Long {
     var result = 1L
     var b = base % mod
     var e = exp
     while (e > 0) {
-        if ((e and 1) == 1) {
+        if ((e and 1) == 1L) {
             result = (result * b) % mod
         }
         e = e shr 1

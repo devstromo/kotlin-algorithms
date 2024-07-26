@@ -166,4 +166,50 @@ internal class PrimesKtUnitTest {
         assertTrue(isPrimeFermat(10007, 5))
         assertFalse(isPrimeFermat(10005, 5))
     }
+
+    @Test
+    fun `Test Miller-Rabin with small prime numbers`() {
+        assertTrue(millerRabinTest(2))
+        assertTrue(millerRabinTest(3))
+        assertTrue(millerRabinTest(5))
+        assertTrue(millerRabinTest(7))
+        assertTrue(millerRabinTest(11))
+    }
+
+    @Test
+    fun `Test Miller-Rabin with small non-prime numbers`() {
+        assertFalse(millerRabinTest(0))
+        assertFalse(millerRabinTest(1))
+        assertFalse(millerRabinTest(4))
+        assertFalse(millerRabinTest(6))
+        assertFalse(millerRabinTest(8))
+    }
+
+    @Test
+    fun `Test Miller-Rabin with larger prime numbers`() {
+        assertTrue(millerRabinTest(13))
+        assertTrue(millerRabinTest(17))
+        assertTrue(millerRabinTest(19))
+        assertTrue(millerRabinTest(23))
+        assertTrue(millerRabinTest(29))
+    }
+
+    @Test
+    fun `Test Miller-Rabin with larger non-prime numbers`() {
+        assertFalse(millerRabinTest(9))
+        assertFalse(millerRabinTest(15))
+        assertFalse(millerRabinTest(21))
+        assertFalse(millerRabinTest(25))
+        assertFalse(millerRabinTest(27))
+    }
+
+    @Test
+    fun `Test Miller-Rabin with very large prime number`() {
+        assertTrue(millerRabinTest(2147483647)) // 2^31 - 1, a known Mersenne prime
+    }
+
+    @Test
+    fun `Test Miller-Rabin with very large non-prime number`() {
+        assertFalse(millerRabinTest(2147483646)) // 2^31 - 2, not a prime
+    }
 }

@@ -128,9 +128,59 @@ fun isPrimeFermat(n: Int, k: Int): Boolean {
         if (gcd(n, a) != 1) return false
 
         // Fermat's little theorem
-        if (power(a.toLong(), n - 1, n) != 1L) return false
+        if (power(a.toLong(), (n - 1).toLong(), n.toLong()) != 1L) return false
 
         attempts--
+    }
+
+    return true
+}
+
+/**
+ * Performs the Miller-Rabin primality test on a given number.
+ *
+ * The Miller-Rabin test is a probabilistic algorithm to determine if a number is a probable prime.
+ * It can provide certainty up to the given number of iterations (`k`). Higher values of `k` increase
+ * the likelihood of correctness, but no iteration is completely deterministic.
+ *
+ * The algorithm is based on the property that for a composite number `n`, there is a non-trivial witness
+ * `a` such that `a^d % n` is neither 1 nor `n-1` for certain values of `d`. The test runs `k` iterations
+ * with different values of `a` to verify this property.
+ *
+ * The time complexity of the Miller-Rabin primality test is O(k * log^3(n)), where `k` is the number of
+ * iterations and `n` is the number being tested.
+ *
+ * @param n The number to be tested for primality.
+ * @param k The number of iterations to perform. Higher values increase the accuracy of the test.
+ * @return `true` if the number is a probable prime, `false` otherwise.
+ */
+fun millerRabinTest(n: Long, k: Int = 5): Boolean {
+    if (n <= 1) return false
+    if (n <= 3) return true
+    if (n % 2 == 0L || n % 3 == 0L) return false
+
+    // Write n - 1 as 2^r * d
+    var r = 0
+    var d = n - 1
+    while (d % 2 == 0L) {
+        d /= 2
+        r += 1
+    }
+
+    // Witness loop
+    repeat(k) {
+        val a = Random.nextLong(2, n - 2)
+        var x = power(a, d, n)
+        if (x == 1L || x == n - 1) return@repeat
+
+        var i = 0
+        while (i < r - 1) {
+            x = power(x, 2, n)
+            if (x == n - 1) return@repeat
+            i += 1
+        }
+
+        return false
     }
 
     return true
