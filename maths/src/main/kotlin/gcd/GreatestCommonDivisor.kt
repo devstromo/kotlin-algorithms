@@ -1,3 +1,5 @@
+package gcd
+
 import kotlin.math.abs
 
 
