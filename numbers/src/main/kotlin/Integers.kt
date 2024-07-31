@@ -82,9 +82,9 @@ fun intToBinary(n: Int): String {
     var number = n
     var binaryString = ""
     while (number > 0) {
-        binaryString = if (number % 2 == 0) "0" + binaryString else "1" + binaryString
+        binaryString = if (number % 2 == 0) "0$binaryString" else "1$binaryString"
         number /= 2
     }
 
-    return binaryString.ifEmpty { "0" } // Handle the case when the input is 0
+    return binaryString.ifEmpty { "0" }
 }
