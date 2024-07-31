@@ -13,6 +13,7 @@
         <module>algorithms</module>
         <module>maths</module>
         <module>utility</module>
+        <module>numbers</module>
     </modules>
 
     <properties>
