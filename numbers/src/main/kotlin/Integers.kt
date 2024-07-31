@@ -55,3 +55,23 @@ fun toBinaryUsingBigDecimal(numberToConvert: Int): String {
 
     return builder.reverse().toString()
 }
+
+fun toBinaryUsingDivideAndDouble(number: Int): String {
+    require(number >= 0) { "Method argument cannot be negative. number=$number" }
+
+    if (number == 0) {
+        return "$number"
+    }
+
+    val builder = StringBuilder()
+    var integer = number
+    var temp: Double
+
+    while (integer > 0) {
+        temp = integer / 2.0
+        integer = temp.toInt()
+        builder.append(if (temp > integer) 1 else 0)
+    }
+
+    return builder.reverse().toString()
+}

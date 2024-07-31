@@ -82,4 +82,31 @@ class IntegersKtUnitTest {
         val result = toBinaryUsingBigDecimal(255)
         assertEquals("11111111", result, "Binary representation of 255 should be '11111111'")
     }
+
+
+    @Test
+    fun `Test to binary using divide and double with positive number input`() {
+        val result = toBinaryUsingDivideAndDouble(10)
+        assertEquals("1010", result, "Binary representation of 10 should be '1010'")
+    }
+
+    @Test
+    fun `Test to binary using divide and double with zero input`() {
+        val result = toBinaryUsingDivideAndDouble(0)
+        assertEquals("0", result, "Binary representation of 0 should be '0'")
+    }
+
+    @Test
+    fun `Test to binary using divide and double with negative number input`() {
+        val exception = assertThrows<IllegalArgumentException> {
+            toBinaryUsingDivideAndDouble(-1)
+        }
+        assertEquals("Method argument cannot be negative. number=-1", exception.message)
+    }
+
+    @Test
+    fun `Test to binary using divide and double with large number input`() {
+        val result = toBinaryUsingDivideAndDouble(255)
+        assertEquals("11111111", result, "Binary representation of 255 should be '11111111'")
+    }
 }
