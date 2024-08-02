@@ -1,4 +1,5 @@
 import java.math.BigDecimal
+import kotlin.math.log10
 
 fun toBinaryUsingDivideAndModulus(number: Int): String {
     require(number >= 0) { "Method argument cannot be negative. number=$number" }
@@ -115,4 +116,22 @@ fun isPowerOfTwoRecursive(number: Int): Boolean {
     if (number == 1) return true
     if (number == 0 || number % 2 != 0) return false
     return isPowerOfTwoRecursive(number / 2)
+}
+
+/**
+ * Determines if a given non-negative integer is a power of two using logarithms.
+ *
+ * This function uses logarithms to check if the number can be expressed as 2^k where k is a non-negative integer.
+ * It calculates the base-10 logarithm of the number and divides it by the base-10 logarithm of 2 to get the exponent
+ * and then compares if this exponent is an integer.
+ *
+ * @param number The integer to check. Must be non-negative.
+ * @return `true` if the number is a power of two, `false` otherwise.
+ * @throws IllegalArgumentException if the input number is negative.
+ */
+fun isPowerOfTwoUsingLog(number: Int): Boolean {
+    require(number >= 0) { "Method argument cannot be negative. number=$number" }
+    val doubleLog = log10(number.toDouble()) / log10(2.0)
+    val intLog = doubleLog.toInt()
+    return doubleLog.compareTo(intLog.toDouble()) == 0
 }

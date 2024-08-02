@@ -245,4 +245,34 @@ class IntegersKtUnitTest {
         }
         assertEquals("Method argument cannot be negative. number=-8", exception.message)
     }
+
+    @Test
+    fun `Test is power of two using log with positive power of two input`() {
+        assertTrue(isPowerOfTwoUsingLog(1), "1 is 2^0, so it should be a power of two")
+        assertTrue(isPowerOfTwoUsingLog(2), "2 is 2^1, so it should be a power of two")
+        assertTrue(isPowerOfTwoUsingLog(4), "4 is 2^2, so it should be a power of two")
+        assertTrue(isPowerOfTwoUsingLog(8), "8 is 2^3, so it should be a power of two")
+        assertTrue(isPowerOfTwoUsingLog(16), "16 is 2^4, so it should be a power of two")
+    }
+
+    @Test
+    fun `Test is power of two using log with non-power of two input`() {
+        assertFalse(isPowerOfTwoUsingLog(3), "3 is not a power of two")
+        assertFalse(isPowerOfTwoUsingLog(5), "5 is not a power of two")
+        assertFalse(isPowerOfTwoUsingLog(6), "6 is not a power of two")
+        assertFalse(isPowerOfTwoUsingLog(10), "10 is not a power of two")
+    }
+
+    @Test
+    fun `Test is power of two using log with zero input`() {
+        assertFalse(isPowerOfTwoUsingLog(0), "0 is not a power of two")
+    }
+
+    @Test
+    fun `Test is power of two using log with negative number input`() {
+        val exception = assertThrows<IllegalArgumentException> {
+            isPowerOfTwoUsingLog(-8)
+        }
+        assertEquals("Method argument cannot be negative. number=-8", exception.message)
+    }
 }
