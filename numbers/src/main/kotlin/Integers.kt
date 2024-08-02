@@ -94,3 +94,7 @@ fun toBinaryUsingToBinaryString(number: Int): String {
     require(number >= 0) { "Method argument cannot be negative. number=$number" }
     return Integer.toBinaryString(number)
 }
+
+fun toBinaryUsingToStringRadix(number: Int): String {
+    return number.toString(2)
+}
