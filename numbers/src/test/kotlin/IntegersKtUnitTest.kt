@@ -131,8 +131,34 @@ class IntegersKtUnitTest {
     }
 
     @Test
-    fun `Test int to binary with large number input`() {
+    fun `Test int to binary using toBinaryString function with large number input`() {
         val result = intToBinary(255)
+        assertEquals("11111111", result, "Binary representation of 255 should be '11111111'")
+    }
+
+    @Test
+    fun `Test int to binary using toBinaryString function with positive number input`() {
+        val result = toBinaryUsingToBinaryString(10)
+        assertEquals("1010", result, "Binary representation of 10 should be '1010'")
+    }
+
+    @Test
+    fun `Test int to binary using toBinaryString function with zero input`() {
+        val result = toBinaryUsingToBinaryString(0)
+        assertEquals("0", result, "Binary representation of 0 should be '0'")
+    }
+
+    @Test
+    fun `Test int to binary using toBinaryString function with negative number input`() {
+        val exception = assertThrows<IllegalArgumentException> {
+            toBinaryUsingToBinaryString(-1)
+        }
+        assertEquals("Method argument cannot be negative. number=-1", exception.message)
+    }
+
+    @Test
+    fun `Test int to binary using toBinaryString function  with large number input`() {
+        val result = toBinaryUsingToBinaryString(255)
         assertEquals("11111111", result, "Binary representation of 255 should be '11111111'")
     }
 }

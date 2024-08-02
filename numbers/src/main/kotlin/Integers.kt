@@ -88,3 +88,9 @@ fun intToBinary(n: Int): String {
 
     return binaryString.ifEmpty { "0" }
 }
+
+
+fun toBinaryUsingToBinaryString(number: Int): String {
+    require(number >= 0) { "Method argument cannot be negative. number=$number" }
+    return Integer.toBinaryString(number)
+}
