@@ -275,4 +275,34 @@ class IntegersKtUnitTest {
         }
         assertEquals("Method argument cannot be negative. number=-8", exception.message)
     }
+
+    @Test
+    fun `Test is power of two using bit manipulation with positive power of two input`() {
+        assertTrue(isPowerOfTwoUsingBits(1), "1 is 2^0, so it should be a power of two")
+        assertTrue(isPowerOfTwoUsingBits(2), "2 is 2^1, so it should be a power of two")
+        assertTrue(isPowerOfTwoUsingBits(4), "4 is 2^2, so it should be a power of two")
+        assertTrue(isPowerOfTwoUsingBits(8), "8 is 2^3, so it should be a power of two")
+        assertTrue(isPowerOfTwoUsingBits(16), "16 is 2^4, so it should be a power of two")
+    }
+
+    @Test
+    fun `Test is power of two using bit manipulation with non-power of two input`() {
+        assertFalse(isPowerOfTwoUsingBits(3), "3 is not a power of two")
+        assertFalse(isPowerOfTwoUsingBits(5), "5 is not a power of two")
+        assertFalse(isPowerOfTwoUsingBits(6), "6 is not a power of two")
+        assertFalse(isPowerOfTwoUsingBits(10), "10 is not a power of two")
+    }
+
+    @Test
+    fun `Test is power of two using bit manipulation with zero input`() {
+        assertFalse(isPowerOfTwoUsingBits(0), "0 is not a power of two")
+    }
+
+    @Test
+    fun `Test is power of two using bit manipulation with negative number input`() {
+        val exception = assertThrows<IllegalArgumentException> {
+            isPowerOfTwoUsingBits(-8)
+        }
+        assertEquals("Method argument cannot be negative. number=-8", exception.message)
+    }
 }

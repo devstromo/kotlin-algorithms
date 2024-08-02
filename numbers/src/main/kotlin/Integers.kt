@@ -135,3 +135,18 @@ fun isPowerOfTwoUsingLog(number: Int): Boolean {
     val intLog = doubleLog.toInt()
     return doubleLog.compareTo(intLog.toDouble()) == 0
 }
+
+/**
+ * Determines if a given integer is a power of two using bitwise operations.
+ *
+ * This function checks if the number has exactly one bit set in its binary representation,
+ * which is a property of numbers that are powers of two.
+ *
+ * @param number The integer to check. Must be non-negative.
+ * @return `true` if the number is a power of two, `false` otherwise.
+ * @throws IllegalArgumentException if the input number is negative.
+ */
+fun isPowerOfTwoUsingBits(number: Int): Boolean {
+    require(number >= 0) { "Method argument cannot be negative. number=$number" }
+    return number != 0 && (number and (number - 1)) == 0
+}
