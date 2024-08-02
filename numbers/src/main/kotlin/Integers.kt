@@ -98,3 +98,14 @@ fun toBinaryUsingToBinaryString(number: Int): String {
 fun toBinaryUsingToStringRadix(number: Int): String {
     return number.toString(2)
 }
+
+fun isPowerOfTwoWithLoop(number: Int): Boolean {
+    require(number >= 0) { "Method argument cannot be negative. number=$number" }
+    if(number == 0) return false
+    var inputNumber = number
+    while (inputNumber % 2 == 0) {
+        inputNumber /= 2
+    }
+
+    return inputNumber == 1
+}

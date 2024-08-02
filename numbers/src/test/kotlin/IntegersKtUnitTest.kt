@@ -185,4 +185,34 @@ class IntegersKtUnitTest {
         val result = toBinaryUsingToStringRadix(255)
         assertEquals("11111111", result, "Binary representation of 255 should be '11111111'")
     }
+
+    @Test
+    fun `Test is power of two with positive power of two input`() {
+        assertTrue(isPowerOfTwoWithLoop(1), "1 is 2^0, so it should be a power of two")
+        assertTrue(isPowerOfTwoWithLoop(2), "2 is 2^1, so it should be a power of two")
+        assertTrue(isPowerOfTwoWithLoop(4), "4 is 2^2, so it should be a power of two")
+        assertTrue(isPowerOfTwoWithLoop(8), "8 is 2^3, so it should be a power of two")
+        assertTrue(isPowerOfTwoWithLoop(16), "16 is 2^4, so it should be a power of two")
+    }
+
+    @Test
+    fun `Test is power of two with non-power of two input`() {
+        assertFalse(isPowerOfTwoWithLoop(3), "3 is not a power of two")
+        assertFalse(isPowerOfTwoWithLoop(5), "5 is not a power of two")
+        assertFalse(isPowerOfTwoWithLoop(6), "6 is not a power of two")
+        assertFalse(isPowerOfTwoWithLoop(10), "10 is not a power of two")
+    }
+
+    @Test
+    fun `Test is power of two with zero input`() {
+        assertFalse(isPowerOfTwoWithLoop(0), "0 is not a power of two")
+    }
+
+    @Test
+    fun `Test is power of two with negative number input`() {
+        val exception = assertThrows<IllegalArgumentException> {
+            isPowerOfTwoWithLoop(-8)
+        }
+        assertEquals("Method argument cannot be negative. number=-8", exception.message)
+    }
 }
