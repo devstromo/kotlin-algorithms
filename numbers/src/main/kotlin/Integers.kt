@@ -101,11 +101,18 @@ fun toBinaryUsingToStringRadix(number: Int): String {
 
 fun isPowerOfTwoWithLoop(number: Int): Boolean {
     require(number >= 0) { "Method argument cannot be negative. number=$number" }
-    if(number == 0) return false
+    if (number == 0) return false
     var inputNumber = number
     while (inputNumber % 2 == 0) {
         inputNumber /= 2
     }
 
     return inputNumber == 1
+}
+
+fun isPowerOfTwoRecursive(number: Int): Boolean {
+    require(number >= 0) { "Method argument cannot be negative. number=$number" }
+    if (number == 1) return true
+    if (number == 0 || number % 2 != 0) return false
+    return isPowerOfTwoRecursive(number / 2)
 }

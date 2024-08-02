@@ -215,4 +215,34 @@ class IntegersKtUnitTest {
         }
         assertEquals("Method argument cannot be negative. number=-8", exception.message)
     }
+
+    @Test
+    fun `Test is power of two using recursion with positive power of two input`() {
+        assertTrue(isPowerOfTwoRecursive(1), "1 is 2^0, so it should be a power of two")
+        assertTrue(isPowerOfTwoRecursive(2), "2 is 2^1, so it should be a power of two")
+        assertTrue(isPowerOfTwoRecursive(4), "4 is 2^2, so it should be a power of two")
+        assertTrue(isPowerOfTwoRecursive(8), "8 is 2^3, so it should be a power of two")
+        assertTrue(isPowerOfTwoRecursive(16), "16 is 2^4, so it should be a power of two")
+    }
+
+    @Test
+    fun `Test is power of two using recursion with non-power of two input`() {
+        assertFalse(isPowerOfTwoRecursive(3), "3 is not a power of two")
+        assertFalse(isPowerOfTwoRecursive(5), "5 is not a power of two")
+        assertFalse(isPowerOfTwoRecursive(6), "6 is not a power of two")
+        assertFalse(isPowerOfTwoRecursive(10), "10 is not a power of two")
+    }
+
+    @Test
+    fun `Test is power of two using recursion with zero input`() {
+        assertFalse(isPowerOfTwoRecursive(0), "0 is not a power of two")
+    }
+
+    @Test
+    fun `Test is power of two using recursion with negative number input`() {
+        val exception = assertThrows<IllegalArgumentException> {
+            isPowerOfTwoRecursive(-8)
+        }
+        assertEquals("Method argument cannot be negative. number=-8", exception.message)
+    }
 }
