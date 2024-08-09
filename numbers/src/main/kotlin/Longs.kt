@@ -1,4 +1,4 @@
-fun toBinaryUsingDivideAndModulus(numberToConvert: Long): String {
+fun toBinaryUsingDivideAndModulusLong(numberToConvert: Long): String {
     require(numberToConvert >= 0) { "Method argument cannot be negative. number=$numberToConvert" }
 
     val builder = StringBuilder()
@@ -11,5 +11,5 @@ fun toBinaryUsingDivideAndModulus(numberToConvert: Long): String {
         builder.append(temp % 2)
     }
 
-    return builder.reverse().toString().ifEmpty { "0" } // Handle the case when the input is 0
+    return builder.reverse().toString().ifEmpty { "0" }
 }
