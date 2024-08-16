@@ -33,8 +33,6 @@ import kotlin.math.pow
  */
 class AmericanFlagSort {
 
-    private val NUMBER_OF_BUCKETS = 10
-
     fun sort(unsorted: Array<Int>): Array<Int> {
         val numberOfDigits = getMaxNumberOfDigits(unsorted) // Max number of digits
         var max = 1
@@ -113,8 +111,9 @@ class AmericanFlagSort {
     }
 
     private fun sort(unsorted: Array<Int>, start: Int, length: Int, divisor: Int) {
-        val count = IntArray(NUMBER_OF_BUCKETS)
-        val offset = IntArray(NUMBER_OF_BUCKETS)
+        val buckets = 10
+        val count = IntArray(buckets)
+        val offset = IntArray(buckets)
         var digit: Int
         for (i in start until length) {
             val d = unsorted[i]
@@ -122,11 +121,11 @@ class AmericanFlagSort {
             count[digit]++
         }
         offset[0] = start
-        for (i in 1 until NUMBER_OF_BUCKETS) {
+        for (i in 1 until buckets) {
             offset[i] = count[i - 1] + offset[i - 1]
         }
         // Second pass - move into position
-        for (b in 0 until NUMBER_OF_BUCKETS) {
+        for (b in 0 until buckets) {
             while (count[b] > 0) {
                 val origin = offset[b]
                 var from = origin
@@ -145,7 +144,7 @@ class AmericanFlagSort {
         }
         if (divisor > 1) {
             // Sort the buckets
-            for (i in 0 until NUMBER_OF_BUCKETS) {
+            for (i in 0 until buckets) {
                 val begin = if (i > 0) offset[i - 1] else start
                 val end = offset[i]
                 if (end - begin > 1) {
