@@ -1,5 +1,8 @@
 package sorting.americanFlag
 
+import kotlin.math.pow
+
+
 /**
  * Sorts an array of integers in ascending order using the American Flag Sort algorithm.
  * American Flag Sort is an efficient, in-place variant of radix sort that distributes items into multiple buckets.
@@ -42,8 +45,74 @@ class AmericanFlagSort {
         return unsorted
     }
 
+    fun americanFlagSort(array: IntArray, radix: Int) {
+        if (array.isEmpty()) return
+
+        val nonNegativeNumbers = array.filter { it >= 0 }.toIntArray()
+        val negativeNumbers = array.filter { it < 0 }.map { -it }.toIntArray()
+
+        if (nonNegativeNumbers.isNotEmpty()) {
+            val maxDigits = getMaxDigits(nonNegativeNumbers, radix)
+            americanFlagSortIterative(nonNegativeNumbers, radix, maxDigits)
+        }
+
+        if (negativeNumbers.isNotEmpty()) {
+            val maxDigits = getMaxDigits(negativeNumbers, radix)
+            americanFlagSortIterative(negativeNumbers, radix, maxDigits)
+        }
+
+
+        var index = 0
+        for (num in negativeNumbers.reversed()) {
+            array[index++] = -num
+        }
+        for (num in nonNegativeNumbers) {
+            array[index++] = num
+        }
+    }
+
+    private fun americanFlagSortIterative(array: IntArray, radix: Int, maxDigits: Int) {
+        val counts = IntArray(radix)
+        val offsets = IntArray(radix)
+
+        for (digit in 0 until maxDigits) {
+            counts.fill(0)
+
+            for (num in array) {
+                val digitValue = getDigit(num, radix, digit)
+                counts[digitValue]++
+            }
+
+            offsets[0] = 0
+            for (i in 1 until radix) {
+                offsets[i] = offsets[i - 1] + counts[i - 1]
+            }
+
+            val tempArray = array.copyOf()
+            for (num in array) {
+                val digitValue = getDigit(num, radix, digit)
+                tempArray[offsets[digitValue]++] = num
+            }
+
+            System.arraycopy(tempArray, 0, array, 0, array.size)
+        }
+    }
+
+    private fun getMaxDigits(array: IntArray, radix: Int): Int {
+        var maxNumber = array.maxOrNull() ?: 0
+        var digits = 0
+        while (maxNumber > 0) {
+            maxNumber /= radix
+            digits++
+        }
+        return digits
+    }
+
+    private fun getDigit(number: Int, radix: Int, position: Int): Int {
+        return (number / radix.toDouble().pow(position.toDouble()).toInt()) % radix
+    }
+
     private fun sort(unsorted: Array<Int>, start: Int, length: Int, divisor: Int) {
-        // First pass - find counts
         val count = IntArray(NUMBER_OF_BUCKETS)
         val offset = IntArray(NUMBER_OF_BUCKETS)
         var digit: Int
