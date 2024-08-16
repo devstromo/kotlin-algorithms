@@ -1,5 +1,6 @@
 package sorting.americanFlag
 
+import kotlin.math.log10
 import kotlin.math.pow
 
 
@@ -157,7 +158,7 @@ class AmericanFlagSort {
     private fun getMaxNumberOfDigits(unsorted: Array<Int>): Int {
         var max = Int.MIN_VALUE
         for (i in unsorted) {
-            val temp = (Math.log10(i.toDouble()) + 1).toInt()
+            val temp = (log10(i.toDouble()) + 1).toInt()
             if (temp > max) {
                 max = temp
             }
