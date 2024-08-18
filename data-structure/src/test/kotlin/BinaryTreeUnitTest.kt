@@ -1,7 +1,7 @@
-import data_structures.trees.BinaryTree
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import trees.BinaryTree
 
 class BinaryTreeUnitTest {
     private lateinit var tree: BinaryTree<Int>
