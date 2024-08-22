@@ -1,4 +1,4 @@
-package stacks
+package base
 
 interface IStack<T> {
 
