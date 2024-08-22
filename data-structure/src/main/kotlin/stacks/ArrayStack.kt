@@ -78,7 +78,8 @@ class ArrayStack<T> : IStack<T> {
     }
 
     override fun toCollection(): Collection<T> {
-        TODO("Not yet implemented")
+        @Suppress("UNCHECKED_CAST")
+        return array.copyOfRange(0, size).filterNotNull() as Collection<T>
     }
 
     override fun toString(): String {

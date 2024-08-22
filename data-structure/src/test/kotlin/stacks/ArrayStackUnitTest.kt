@@ -64,10 +64,23 @@ class ArrayStackUnitTest {
     }
 
     @Test
+    fun `Test ToCollection`() {
+        val stack = ArrayStack<Int>()
+        stack.push(1)
+        stack.push(2)
+        stack.push(3)
+
+        val collection = stack.toCollection()
+        val expected = setOf(1, 2, 3)
+
+        assertEquals(expected, collection.toSet())
+    }
+
+    @Test
     fun `Test ToString`() {
         val stack = ArrayStack<Int>()
         stack.push(1)
         stack.push(2)
-        assertEquals("2, 1, ", stack.toString(), "String representation of stack should be '2, 1, '")
+        assertEquals("2, 1, ", stack.toString())
     }
 }
