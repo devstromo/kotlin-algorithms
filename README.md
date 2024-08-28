@@ -88,6 +88,8 @@ sequences.
     - With cutoff
     - Dijkstra's 3-way partition
 - [Counting sort](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sorting/counting/CountingSort.kt)
+- [American Flag](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sorting/americanFlag/AmericanFlagSort.kt)
+- [Patience Sort](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sorting/patience/PatienceSort.kt)
 
 ## Contributing
 
