@@ -40,6 +40,9 @@ something for you.
   - [Doubly Linked List](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/lists/DoublyLinkedList.kt)
   - [Singly Linked List](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/lists/SinglyLinkedList.kt)
 
+- Queue
+  - [Array Queue](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/queues/ArrayQueue.kt)
+
 ### Maths
 
 - [Distance](https://github.com/devstromo/kotlin-algorithms/blob/main/maths/src/main/kotlin/distance/Distance.kt)
