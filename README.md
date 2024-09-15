@@ -43,6 +43,9 @@ something for you.
 - Queue
   - [Backed by Array List](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/queues/ArrayQueue.kt)
 
+- Sets
+  - [Disjoint Set](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/sets/DisjointSet.kt)
+
 - Stack
   - [Backed by Array List](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/stacks/ArrayStack.kt)
   - [Backed by Linked List](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/stacks/LinkedStack.kt)
