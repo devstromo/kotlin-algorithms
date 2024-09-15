@@ -41,7 +41,11 @@ something for you.
   - [Singly Linked List](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/lists/SinglyLinkedList.kt)
 
 - Queue
-  - [Array Queue](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/queues/ArrayQueue.kt)
+  - [Backed by Array List](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/queues/ArrayQueue.kt)
+
+- Stack
+  - [Backed by Array List](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/stacks/ArrayStack.kt)
+  - [Backed by Linked List](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/stacks/LinkedStack.kt)
 
 ### Maths
 
