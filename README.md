@@ -50,6 +50,10 @@ something for you.
   - [Backed by Array List](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/stacks/ArrayStack.kt)
   - [Backed by Linked List](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/stacks/LinkedStack.kt)
 
+- Trees
+  - [Binary Tree](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/trees/BinaryTree.kt)
+  - [Binary Search Tree](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/trees/BinarySearchTree.kt)
+
 ### Maths
 
 - [Distance](https://github.com/devstromo/kotlin-algorithms/blob/main/maths/src/main/kotlin/distance/Distance.kt)
