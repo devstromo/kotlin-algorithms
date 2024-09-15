@@ -26,10 +26,19 @@ something for you.
 
 # Table of Contents
 
+- [Data Structures](#data-structures)
 - [Maths](#maths)
 - [Searching](#searching)
 - [Sequences](#sequences)
-- [Sorting](#sorting)
+- [Sorting](#sorting) 
+
+### Data Structures
+
+- List
+  - [Array List](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/lists/ArrayList.kt)
+  - [Circular Linked List](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/lists/CircularLinkedList.kt)
+  - [Doubly Linked List](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/lists/DoublyLinkedList.kt)
+  - [Singly Linked List](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/lists/SinglyLinkedList.kt)
 
 ### Maths
 
