@@ -3,6 +3,9 @@ package lists
 import base.IList
 import kotlin.random.Random
 
+/**
+ * https://en.wikipedia.org/wiki/Skip_list#:~:text=Skip%20lists%20are%20a%20probabilistic,faster%20and%20use%20less%20space.
+ */
 class SkipList<T : Comparable<T>>(
     private val maxLevel: Int = 16,
     private val p: Double = 0.5
