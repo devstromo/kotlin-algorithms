@@ -3,6 +3,7 @@ package trees.heaps
 import base.ITree
 import kotlin.math.floor
 import kotlin.math.ln
+import kotlin.math.pow
 
 class MinHeap<T : Comparable<T>> : ITree<T> {
     private val heap = mutableListOf<T>()
@@ -59,7 +60,7 @@ class MinHeap<T : Comparable<T>> : ITree<T> {
             }
             println()
             level++
-            elementsInLevel += Math.pow(2.0, level.toDouble()).toInt()
+            elementsInLevel += 2.0.pow(level).toInt()
         }
     }
 
