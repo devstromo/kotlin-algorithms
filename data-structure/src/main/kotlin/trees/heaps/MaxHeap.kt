@@ -1,6 +1,9 @@
 package trees.heaps
 
 import base.ITree
+import kotlin.math.floor
+import kotlin.math.ln
+import kotlin.math.pow
 
 class MaxHeap<T : Comparable<T>> : ITree<T> {
     private val heap = mutableListOf<T>()
@@ -37,7 +40,7 @@ class MaxHeap<T : Comparable<T>> : ITree<T> {
     }
 
     override fun height(): Int {
-        return if (heap.isEmpty()) 0 else Math.floor(Math.log(heap.size.toDouble()) / Math.log(2.0)).toInt() + 1
+        return if (heap.isEmpty()) 0 else floor(ln(heap.size.toDouble()) / ln(2.0)).toInt() + 1
     }
 
     override fun printTree() {
@@ -57,7 +60,7 @@ class MaxHeap<T : Comparable<T>> : ITree<T> {
             }
             println()
             level++
-            elementsInLevel += Math.pow(2.0, level.toDouble()).toInt()
+            elementsInLevel += 2.0.pow(level).toInt()
         }
     }
 
