@@ -39,6 +39,7 @@ something for you.
   - [Circular Linked List](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/lists/CircularLinkedList.kt)
   - [Doubly Linked List](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/lists/DoublyLinkedList.kt)
   - [Singly Linked List](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/lists/SinglyLinkedList.kt)
+  - [Skip List](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/lists/SkipList.kt)
 
 - Queue
   - [Backed by Array List](https://github.com/devstromo/kotlin-algorithms/blob/main/data-structure/src/main/kotlin/queues/ArrayQueue.kt)
