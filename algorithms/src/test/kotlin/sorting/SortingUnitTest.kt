@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Test
 import sorting.bubble.BubbleSort
 import sorting.counting.CountingSort
+import sorting.heapsort.Heapsort
 import sorting.insertion.InsertionSort
 import sorting.merge.MergeSort
 import sorting.quicksort.QuickSort
@@ -21,6 +22,7 @@ class SortingUnitTest {
     private val mergeSort = MergeSort()
     private val quickSort = QuickSort()
     private val countingSort = CountingSort()
+    private val heapSort = Heapsort()
 
     @Test
     fun `Test Bubble Sort with randomly ordered array`() {
@@ -235,5 +237,65 @@ class SortingUnitTest {
             countingSort.sort(array),
             "The array of identical elements should remain unchanged."
         )
+    }
+
+    @Test
+    fun `Test Heap Sort with randomly ordered array`() {
+        val array = intArrayOf(38, 27, 43, 3, 9, 82, 10)
+        val expected = intArrayOf(3, 9, 10, 27, 38, 43, 82)
+
+        heapSort.sort(array)
+
+        assertArrayEquals(expected, array, "The array should be sorted in ascending order.")
+    }
+
+    @Test
+    fun `Test Heap Sort with already sorted array`() {
+        val array = intArrayOf(1, 2, 3, 4, 5)
+        val expected = intArrayOf(1, 2, 3, 4, 5)
+
+        heapSort.sort(array)
+
+        assertArrayEquals(expected, array, "The already sorted array should remain unchanged.")
+    }
+
+    @Test
+    fun `Test Heap Sort with reverse ordered array`() {
+        val array = intArrayOf(5, 4, 3, 2, 1)
+        val expected = intArrayOf(1, 2, 3, 4, 5)
+
+        heapSort.sort(array)
+
+        assertArrayEquals(expected, array, "The reverse sorted array should be sorted in ascending order.")
+    }
+
+    @Test
+    fun `Test Heap Sort with array containing duplicate values`() {
+        val array = intArrayOf(4, 2, 2, 8, 3, 3, 1)
+        val expected = intArrayOf(1, 2, 2, 3, 3, 4, 8)
+
+        heapSort.sort(array)
+
+        assertArrayEquals(expected, array, "The array with duplicate values should be sorted correctly.")
+    }
+
+    @Test
+    fun `Test Heap Sort with single element array`() {
+        val array = intArrayOf(10)
+        val expected = intArrayOf(10)
+
+        heapSort.sort(array)
+
+        assertArrayEquals(expected, array, "The single-element array should remain unchanged.")
+    }
+
+    @Test
+    fun `Test Heap Sort with empty array`() {
+        val array = intArrayOf()
+        val expected = intArrayOf()
+
+        heapSort.sort(array)
+
+        assertArrayEquals(expected, array, "The empty array should remain unchanged.")
     }
 }
