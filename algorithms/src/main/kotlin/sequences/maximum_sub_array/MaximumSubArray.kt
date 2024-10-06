@@ -10,14 +10,29 @@ package sequences.maximum_sub_array
  */
 class MaximumSubArray {
 
-    fun maximumSubArray(input: IntArray): Int {
+    fun maximumSubArray(nums: IntArray): Int {
         var maxSum = Int.MIN_VALUE
 
-        for (i in input.indices) {
+        for (i in nums.indices) {
             var currentSum = 0
-            for (j in i until input.size) {
-                currentSum += input[j]
+            for (j in i until nums.size) {
+                currentSum += nums[j]
                 maxSum = maxOf(maxSum, currentSum)
+            }
+        }
+
+        return maxSum
+    }
+
+    fun maximumSubArrayKadane(nums: IntArray): Int {
+        var maxSum = nums[0]
+        var maxLocal = nums[0]
+        val n = nums.size
+
+        for (i in 1 until n) {
+            maxLocal = maxOf(nums[i], nums[i] + maxLocal)
+            if (maxLocal > maxSum) {
+                maxSum = maxLocal
             }
         }
 
