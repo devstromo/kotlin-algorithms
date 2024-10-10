@@ -96,6 +96,7 @@ sequences.
     - Tabular
     - Binet's Formula
     - Fast Doubling Method Negative
+- [Maximum Subarray Problem](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sequences/maximum_sub_array/MaximumSubArray.kt)
 
 ### Sorting
 
@@ -115,6 +116,7 @@ sequences.
 - [Counting sort](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sorting/counting/CountingSort.kt)
 - [American Flag](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sorting/americanFlag/AmericanFlagSort.kt)
 - [Patience Sort](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sorting/patience/PatienceSort.kt)
+- [Heap Sort](https://github.com/devstromo/kotlin-algorithms/blob/main/algorithms/src/main/kotlin/sorting/heapsort/Heapsort.kt)
 
 ## Contributing
 
