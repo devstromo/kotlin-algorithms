@@ -64,6 +64,23 @@ class MinHeap<T : Comparable<T>> : ITree<T> {
         }
     }
 
+    fun peek(): T? {
+        return if (heap.isNotEmpty()) heap[0] else null
+    }
+
+    fun pop(): T? {
+        if (heap.isEmpty()) return null
+
+        val maxValue = heap[0]
+        if (heap.size > 1) {
+            heap[0] = heap.removeAt(heap.size - 1)
+            heapifyDown(0)
+        } else {
+            heap.removeAt(0)
+        }
+        return maxValue
+    }
+
     private fun heapifyUp(index: Int) {
         var currentIndex = index
         val parentIndex = (currentIndex - 1) / 2
