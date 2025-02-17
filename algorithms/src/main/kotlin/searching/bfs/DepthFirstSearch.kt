@@ -37,12 +37,16 @@ class DepthFirstSearch<T> {
      *
      * @param graph The adjacency list representation of the graph.
      * @param start The starting node for the search.
+     * @param visited A mutable set to keep track of visited nodes.
      */
-    fun iterativeDFS(graph: Map<T, List<T>>, start: T) {
+    fun iterativeDFS(
+        graph: Map<T, List<T>>,
+        start: T,
+        visited: MutableSet<T> = mutableSetOf()
+    ) {
         val stack = ArrayDeque<T>()
-        val visited = mutableSetOf<T>()
 
-        stack.add(start)
+        stack.addLast(start)
 
         while (stack.isNotEmpty()) {
             val node = stack.removeLast()
@@ -51,8 +55,12 @@ class DepthFirstSearch<T> {
             visited.add(node)
             println("Visited: $node")
 
-            graph[node]?.forEach { neighbor ->
-                stack.add(neighbor)
+            // Safely get the neighbors or an empty list if the node is not in the graph
+            val neighbors = graph[node] ?: emptyList()
+            neighbors.forEach { neighbor ->
+                if (neighbor !in visited) {
+                    stack.addLast(neighbor) // Add neighbors to the stack
+                }
             }
         }
     }
