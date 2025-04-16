@@ -50,4 +50,13 @@ class LongestCommonSubsequenceUnitTest {
         val result = lcsSolver.lcs(text1, text2)
         assertEquals(expected, result)
     }
+
+    @Test
+    fun `Test common subsequence string`() {
+        val text1 = "abcde"
+        val text2 = "ace"
+        val expected = "ace"
+        val result = lcsSolver.lcsString(text1, text2)
+        assertEquals(expected, result)
+    }
 }
