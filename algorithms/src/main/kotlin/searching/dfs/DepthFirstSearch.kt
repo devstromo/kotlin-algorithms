@@ -1,4 +1,4 @@
-package searching.bfs
+package searching.dfs
 
 /**
  * A generic implementation of Depth First Search (DFS) in Kotlin.

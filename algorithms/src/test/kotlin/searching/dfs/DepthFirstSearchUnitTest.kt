@@ -1,4 +1,4 @@
-package searching.bfs
+package searching.dfs
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test

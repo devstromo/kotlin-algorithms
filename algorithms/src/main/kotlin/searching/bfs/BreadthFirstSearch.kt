@@ -1,4 +1,4 @@
-package searching.dfs
+package searching.bfs
 
 /**
  * A generic implementation of Breadth First Search (BFS) in Kotlin.
